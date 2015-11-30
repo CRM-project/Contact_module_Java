@@ -100,7 +100,7 @@ public class CompanyController {
         companyService.deleteById(id);
     }
 
-    @RequestMapping(value = "emailsbycompany/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "company/email/{id}", method = RequestMethod.GET)
     @ResponseBody
     public List<Email> getEmails(@PathVariable Integer id) {
         List<Email> list = companyService.getEmailListByCompanyId(id);
