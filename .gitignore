@@ -1,0 +1,6 @@
+.idea
+#src/main/webapp/resources/bower_components
+#src/main/webapp/resources/node_modules
+src/main/webapp/resources/sources/styles/**/*.css
+target
+*.iml
