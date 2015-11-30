@@ -1,7 +1,7 @@
 package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.org.apache.xpath.internal.operations.String;
+//import com.sun.org.apache.xpath.internal.operations.String;
 
 import javax.persistence.*;
 import java.io.Serializable;
