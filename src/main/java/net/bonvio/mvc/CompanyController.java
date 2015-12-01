@@ -1,7 +1,6 @@
 package net.bonvio.mvc;
 
-import net.bonvio.model.Company;
-import net.bonvio.model.Email;
+import net.bonvio.model.*;
 import net.bonvio.service.entity.CompanyService;
 import net.bonvio.settings.Id;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +58,9 @@ public class CompanyController {
     @RequestMapping(value = "company/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getCompany(@PathVariable Integer id) {
+        /*if (blabala == "email") {
+            return //
+        }*/
         return companyService.findById(id);
     }
 
@@ -85,7 +87,6 @@ public class CompanyController {
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public void updateUser(@RequestBody Company company) {
-        System.out.println(company);
         companyService.update(company);
     }
 
@@ -96,15 +97,37 @@ public class CompanyController {
     @RequestMapping(value = "company/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void deleteUser(@PathVariable Integer id) {
-        System.out.println("remove company by id = " + id);
         companyService.deleteById(id);
     }
 
-    @RequestMapping(value = "company/email/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "company/getemaillist/{id}", method = RequestMethod.GET)
     @ResponseBody
     public List<Email> getEmails(@PathVariable Integer id) {
-        List<Email> list = companyService.getEmailListByCompanyId(id);
-        return list;
+        return companyService.getEmailListByCompanyId(id);
+    }
+
+    @RequestMapping(value = "company/getphonelist/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Phone> getPhones(@PathVariable Integer id) {
+        return companyService.getPhoneListByCompanyId(id);
+    }
+
+    @RequestMapping(value = "company/getsociallist/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Social> getSocial(@PathVariable Integer id) {
+        return companyService.getSocialListByCompanyId(id);
+    }
+
+    @RequestMapping(value = "company/gettaglist/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Tag> getTags(@PathVariable Integer id) {
+        return companyService.getTagListByCompanyId(id);
+    }
+
+    @RequestMapping(value = "company/getwebsitelist/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Website> getWebSite(@PathVariable Integer id) {
+        return companyService.getWebsiteListByCompanyId(id);
     }
 
 }
