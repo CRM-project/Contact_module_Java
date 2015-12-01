@@ -22,6 +22,9 @@ public class Tag  implements Serializable {
     @Column(columnDefinition = "TEXT")
     public String title;
 
+    @Column(columnDefinition = "TEXT")
+    public String type;
+
     @ManyToOne
     @JsonIgnore
     public Contact contact;
