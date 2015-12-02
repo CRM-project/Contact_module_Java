@@ -1,12 +1,13 @@
 package net.bonvio.dao.entityImpl;
 
 import net.bonvio.dao.GenericDAOImpl;
-import net.bonvio.model.Employee;
+import net.bonvio.model.Email;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by mil on 24.11.2015.
+ * Created by mil on 02.12.15.
  */
 
 @Repository
-public class EmployeeDaoImpl extends GenericDAOImpl<Employee> {}
+public class EmailDaoImpl extends GenericDAOImpl<Email> {
+}

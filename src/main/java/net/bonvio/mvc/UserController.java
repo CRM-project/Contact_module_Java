@@ -33,9 +33,7 @@ public class UserController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getCustomerd(ModelAndView view) {
-
         view.setViewName("hello");
-
         return view;
     }
 
