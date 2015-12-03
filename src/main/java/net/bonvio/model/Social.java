@@ -29,4 +29,7 @@ public class Social  implements Serializable {
     @JsonIgnore
     public Contact contact;
 
+    public Integer getId() {
+        return id;
+    }
 }

@@ -31,7 +31,11 @@ public class Answer implements Serializable {
     @JsonIgnore
     public Customer customer;
 
-    @Override
+    public int getId() {
+        return id;
+    }
+
+/*    @Override
     public String toString() {
         return "Answer{" +
                 "id=" + id +
@@ -39,5 +43,5 @@ public class Answer implements Serializable {
                 ", answerText='" + answerText + '\'' +
                 ", question='" + question + '\'' +
                 '}';
-    }
+    }*/
 }

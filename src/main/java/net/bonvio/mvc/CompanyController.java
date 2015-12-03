@@ -58,9 +58,6 @@ public class CompanyController {
     @RequestMapping(value = "company/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getCompany(@PathVariable Integer id) {
-        /*if (blabala == "email") {
-            return //
-        }*/
         return companyService.findById(id);
     }
 

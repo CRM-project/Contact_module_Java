@@ -30,4 +30,7 @@ public class Email implements Serializable {
     @JsonIgnore
     public Contact contact;
 
+    public Integer getId() {
+        return id;
+    }
 }

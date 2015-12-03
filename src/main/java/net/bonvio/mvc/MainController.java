@@ -16,7 +16,7 @@ public class MainController {
      * @return hello
      */
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getCustomerd(ModelAndView view) {
+    public ModelAndView getMainView(ModelAndView view) {
 
         view.setViewName("hello");
 

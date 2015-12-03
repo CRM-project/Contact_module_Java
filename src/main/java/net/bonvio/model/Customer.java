@@ -33,4 +33,9 @@ public class Customer implements Serializable {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+    public int getId() {
+        return id;
+    }
+
 }

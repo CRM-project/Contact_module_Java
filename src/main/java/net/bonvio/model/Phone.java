@@ -30,4 +30,7 @@ public class Phone implements Serializable {
     @JsonIgnore
     public Contact contact;
 
+    public Integer getId() {
+        return id;
+    }
 }
