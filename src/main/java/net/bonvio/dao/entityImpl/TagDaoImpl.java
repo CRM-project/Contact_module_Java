@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public class TagDaoImpl extends GenericDAOImpl<Tag>{
+public class TagDaoImpl extends GenericDAOImpl<Tag> {
 }

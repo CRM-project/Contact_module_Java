@@ -6,8 +6,6 @@ import net.bonvio.service.entity.SocialService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 /**
  * Created by mil on 23.11.2015.
  */

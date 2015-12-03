@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public class EmployeeDaoImpl extends GenericDAOImpl<Employee> {}
+public class EmployeeDaoImpl extends GenericDAOImpl<Employee> {
+}

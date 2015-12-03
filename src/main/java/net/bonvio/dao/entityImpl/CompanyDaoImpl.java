@@ -15,10 +15,6 @@ import java.util.List;
 @Repository
 public class CompanyDaoImpl extends GenericDAOImpl<Company> implements CompanyDao {
 
-    public CompanyDaoImpl() {
-        System.out.println("Created CompanyDaoImpl");
-    }
-
     @PersistenceContext
     EntityManager entityManager;
 
