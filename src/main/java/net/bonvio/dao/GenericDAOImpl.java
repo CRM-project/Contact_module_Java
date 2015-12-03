@@ -4,27 +4,28 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.List;
 /**
  * Created by mil on 26.11.15.
  */
 public class GenericDAOImpl<T extends Serializable> implements GenericDAO<T> {
 
-    private Class<T> type;
+    private Class<T> tClass;
 
     @SuppressWarnings("unchecked")
     public GenericDAOImpl() {
-        Type t = getClass().getGenericSuperclass();
-        ParameterizedType pt = (ParameterizedType) t;
-        type = (Class) pt.getActualTypeArguments()[0];
+        tClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
     }
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Override
-    public List<T> getList() { return entityManager.createQuery("SELECT entity FROM " + type.getSimpleName() + " entity").getResultList();
+    public List<T> getList() { return entityManager.createQuery("SELECT entity FROM " + tClass.getSimpleName() + " entity").getResultList();
+    }
+
+    @Override
+    public T getById(Integer id) { return entityManager.find(tClass, id);
     }
 
     @Override
@@ -48,11 +49,7 @@ public class GenericDAOImpl<T extends Serializable> implements GenericDAO<T> {
     }
 
     @Override
-    public T getById(Integer id) { return entityManager.find(type, id);
-    }
-
-    @Override
     public T getReference(Integer id) {
-        return entityManager.getReference(type, id);
+        return entityManager.getReference(tClass, id);
     }
 }
