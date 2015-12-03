@@ -24,7 +24,7 @@ public class GenericDAOImpl<T extends Serializable> implements GenericDAO<T> {
     private EntityManager entityManager;
 
     @Override
-    public List<T> findAll() { return entityManager.createQuery("SELECT entity FROM " + type.getSimpleName() + " entity").getResultList();
+    public List<T> getList() { return entityManager.createQuery("SELECT entity FROM " + type.getSimpleName() + " entity").getResultList();
     }
 
     @Override

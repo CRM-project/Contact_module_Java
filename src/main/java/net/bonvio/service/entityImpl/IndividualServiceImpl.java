@@ -28,7 +28,7 @@ public class IndividualServiceImpl implements IndividualService {
 
     @Override
     public List<Individual> getList() {
-        return individualGenericDAO.findAll();
+        return individualGenericDAO.getList();
     }
 
     @Override

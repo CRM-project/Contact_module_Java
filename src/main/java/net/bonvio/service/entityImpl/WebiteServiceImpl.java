@@ -28,7 +28,7 @@ public class WebiteServiceImpl implements WebsiteService {
 
     @Override
     public List<Website> getList() {
-        return websiteGenericDAO.findAll();
+        return websiteGenericDAO.getList();
     }
 
     @Override

@@ -28,7 +28,7 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public List<Contact> getList() {
-        return contactGenericDAO.findAll();
+        return contactGenericDAO.getList();
     }
 
     @Override

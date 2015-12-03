@@ -28,7 +28,7 @@ public class SocialServiceImpl implements SocialService {
 
     @Override
     public List<Social> getList() {
-        return userGenericDAO.findAll();
+        return userGenericDAO.getList();
     }
 
     @Override

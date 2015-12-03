@@ -27,7 +27,7 @@ public class TagServiceImpl implements TagService{
 
     @Override
     public List<Tag> getList() {
-        return tagGenericDAO.findAll();
+        return tagGenericDAO.getList();
     }
 
     @Override

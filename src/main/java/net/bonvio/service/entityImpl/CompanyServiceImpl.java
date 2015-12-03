@@ -28,7 +28,7 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public List<Company> getList() {
-        return companyGenericDAO.findAll();
+        return companyGenericDAO.getList();
     }
 
     @Override

@@ -28,7 +28,7 @@ public class AnswerServiceImpl implements AnswerService {
 
     @Override
     public List<Answer> getList() {
-        return answerGenericDAO.findAll();
+        return answerGenericDAO.getList();
     }
 
     @Override

@@ -28,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> getList() {
-        return customerGenericDAO.findAll();
+        return customerGenericDAO.getList();
     }
 
     @Override

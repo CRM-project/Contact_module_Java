@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getList() {
-        return userGenericDAO.findAll();
+        return userGenericDAO.getList();
     }
 
     @Override

@@ -28,7 +28,7 @@ public class PhoneServiceImpl implements PhoneService {
 
     @Override
     public List<Phone> getList() {
-        return phoneGenericDAO.findAll();
+        return phoneGenericDAO.getList();
     }
 
     @Override
