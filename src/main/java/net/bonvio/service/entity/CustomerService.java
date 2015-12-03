@@ -10,10 +10,10 @@ import java.util.List;
 public interface CustomerService {
 
     void save(Customer customer);
-    List<Customer> getAll();
+    List<Customer> getList();
     void delete(Customer customer);
     void deleteById(Integer id);
-    Customer findById(Integer id);
+    Customer getById(Integer id);
     void update(Customer customer);
 }
 

@@ -33,7 +33,7 @@ public class CustomerController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getCustomerd(ModelAndView view) {
-        view.setViewName("hello");
+        view.setViewName("index");
         return view;
     }
 
@@ -44,7 +44,7 @@ public class CustomerController {
     @RequestMapping(value="customer", method = RequestMethod.GET)
     @ResponseBody
     public List<Customer> getcustomers() {
-        List<Customer> list = customerService.getAll();
+        List<Customer> list = customerService.getList();
         return list;
     }
 
@@ -56,7 +56,7 @@ public class CustomerController {
     @RequestMapping(value = "customer/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getcustomer(@PathVariable Integer id) {
-        return customerService.findById(id);
+        return customerService.getById(id);
     }
 
     /**

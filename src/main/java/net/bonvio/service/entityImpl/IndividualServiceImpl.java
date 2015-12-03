@@ -27,7 +27,7 @@ public class IndividualServiceImpl implements IndividualService {
     }
 
     @Override
-    public List<Individual> getAll() {
+    public List<Individual> getList() {
         return individualGenericDAO.findAll();
     }
 
@@ -42,8 +42,8 @@ public class IndividualServiceImpl implements IndividualService {
     }
 
     @Override
-    public Individual findById(Integer id) {
-        return individualGenericDAO.findById(id);
+    public Individual getById(Integer id) {
+        return individualGenericDAO.getById(id);
     }
 
     @Override

@@ -10,10 +10,10 @@ import java.util.List;
 public interface PhoneService {
 
     void save(Phone phone);
-    List<Phone> getAll();
+    List<Phone> getList();
     void delete(Phone phone);
     void deleteById(Integer id);
-    Phone findById(Integer id);
+    Phone getById(Integer id);
     void update(Phone phone);
 }
 

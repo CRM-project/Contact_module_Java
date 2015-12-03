@@ -27,7 +27,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public List<Contact> getAll() {
+    public List<Contact> getList() {
         return contactGenericDAO.findAll();
     }
 
@@ -42,8 +42,8 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Contact findById(Integer id) {
-        return contactGenericDAO.findById(id);
+    public Contact getById(Integer id) {
+        return contactGenericDAO.getById(id);
     }
 
     @Override

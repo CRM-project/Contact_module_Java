@@ -10,10 +10,10 @@ import java.util.List;
 public interface UserService {
 
     void save(User user);
-    List<User> getAll();
+    List<User> getList();
     void delete(User user);
     void deleteById(Integer id);
-    User findById(Integer id);
+    User getById(Integer id);
     void update(User user);
 }
 

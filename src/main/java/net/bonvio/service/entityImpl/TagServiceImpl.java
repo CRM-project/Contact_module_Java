@@ -26,7 +26,7 @@ public class TagServiceImpl implements TagService{
     }
 
     @Override
-    public List<Tag> getAll() {
+    public List<Tag> getList() {
         return tagGenericDAO.findAll();
     }
 
@@ -41,8 +41,8 @@ public class TagServiceImpl implements TagService{
     }
 
     @Override
-    public Tag findById(Integer id) {
-        return tagGenericDAO.findById(id);
+    public Tag getById(Integer id) {
+        return tagGenericDAO.getById(id);
     }
 
     @Override

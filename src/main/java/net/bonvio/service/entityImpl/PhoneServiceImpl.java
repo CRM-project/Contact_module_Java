@@ -27,7 +27,7 @@ public class PhoneServiceImpl implements PhoneService {
     }
 
     @Override
-    public List<Phone> getAll() {
+    public List<Phone> getList() {
         return phoneGenericDAO.findAll();
     }
 
@@ -42,8 +42,8 @@ public class PhoneServiceImpl implements PhoneService {
     }
 
     @Override
-    public Phone findById(Integer id) {
-        return phoneGenericDAO.findById(id);
+    public Phone getById(Integer id) {
+        return phoneGenericDAO.getById(id);
     }
 
     @Override

@@ -33,7 +33,7 @@ public class SocialController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getCustomerd(ModelAndView view) {
-        view.setViewName("hello");
+        view.setViewName("index");
         return view;
     }
 
@@ -44,7 +44,7 @@ public class SocialController {
     @RequestMapping(value="social", method = RequestMethod.GET)
     @ResponseBody
     public List<Social> getsocials() {
-        List<Social> list = socialService.getAll();
+        List<Social> list = socialService.getList();
         return list;
     }
 
@@ -56,7 +56,7 @@ public class SocialController {
     @RequestMapping(value = "social/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getsocial(@PathVariable Integer id) {
-        return socialService.findById(id);
+        return socialService.getById(id);
     }
 
     /**

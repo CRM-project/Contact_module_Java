@@ -33,7 +33,7 @@ public class PhoneController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getPhoneMVC(ModelAndView view) {
-        view.setViewName("hello");
+        view.setViewName("index");
         return view;
     }
 
@@ -44,7 +44,7 @@ public class PhoneController {
     @RequestMapping(value="phone", method = RequestMethod.GET)
     @ResponseBody
     public List<Phone> getphones() {
-        List<Phone> list = phoneService.getAll();
+        List<Phone> list = phoneService.getList();
         return list;
     }
 
@@ -56,7 +56,7 @@ public class PhoneController {
     @RequestMapping(value = "phone/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getphone(@PathVariable Integer id) {
-        return phoneService.findById(id);
+        return phoneService.getById(id);
     }
 
     /**

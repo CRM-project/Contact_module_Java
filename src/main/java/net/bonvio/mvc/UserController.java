@@ -33,7 +33,7 @@ public class UserController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getCustomerd(ModelAndView view) {
-        view.setViewName("hello");
+        view.setViewName("index");
         return view;
     }
 
@@ -44,7 +44,7 @@ public class UserController {
     @RequestMapping(value="user", method = RequestMethod.GET)
     @ResponseBody
     public List<User> getUsers() {
-        List<User> list = userService.getAll();
+        List<User> list = userService.getList();
         return list;
     }
 
@@ -56,7 +56,7 @@ public class UserController {
     @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getUser(@PathVariable Integer id) {
-        return userService.findById(id);
+        return userService.getById(id);
     }
 
     /**

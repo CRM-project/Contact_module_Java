@@ -10,10 +10,10 @@ import java.util.List;
 public interface SocialService {
 
     void save(Social social);
-    List<Social> getAll();
+    List<Social> getList();
     void delete(Social social);
     void deleteById(Integer id);
-    Social findById(Integer id);
+    Social getById(Integer id);
     void update(Social social);
 }
 

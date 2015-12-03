@@ -24,6 +24,10 @@ public class GenericDAOImpl<T extends Serializable> implements GenericDAO<T> {
     private EntityManager entityManager;
 
     @Override
+    public List<T> findAll() { return entityManager.createQuery("SELECT entity FROM " + type.getSimpleName() + " entity").getResultList();
+    }
+
+    @Override
     public void save(T entity) {
         entityManager.persist(entity);
     }
@@ -44,11 +48,7 @@ public class GenericDAOImpl<T extends Serializable> implements GenericDAO<T> {
     }
 
     @Override
-    public T findById(Integer id) { return entityManager.find(type, id);
-    }
-
-    @Override
-    public List<T> findAll() { return entityManager.createQuery("SELECT entity FROM " + type.getSimpleName() + " entity").getResultList();
+    public T getById(Integer id) { return entityManager.find(type, id);
     }
 
     @Override

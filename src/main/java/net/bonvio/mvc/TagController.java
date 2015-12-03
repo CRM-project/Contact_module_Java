@@ -32,7 +32,7 @@ public class TagController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getCustomerd(ModelAndView view) {
-        view.setViewName("hello");
+        view.setViewName("index");
         return view;
     }
 
@@ -43,7 +43,7 @@ public class TagController {
     @RequestMapping(value="tag", method = RequestMethod.GET)
     @ResponseBody
     public List<Tag> getTags() {
-        List<Tag> list = tagService.getAll();
+        List<Tag> list = tagService.getList();
         return list;
     }
 

@@ -27,7 +27,7 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public List<Answer> getAll() {
+    public List<Answer> getList() {
         return answerGenericDAO.findAll();
     }
 
@@ -42,8 +42,8 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public Answer findById(Integer id) {
-        return answerGenericDAO.findById(id);
+    public Answer getById(Integer id) {
+        return answerGenericDAO.getById(id);
     }
 
     @Override

@@ -27,7 +27,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> getAll() {
+    public List<Employee> getList() {
         return employeeGenericDAO.findAll();
     }
 
@@ -42,8 +42,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee findById(Integer id) {
-        return employeeGenericDAO.findById(id);
+    public Employee getById(Integer id) {
+        return employeeGenericDAO.getById(id);
     }
 
     @Override

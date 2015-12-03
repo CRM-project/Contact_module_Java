@@ -33,7 +33,7 @@ public class IndividualController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getCustomerd(ModelAndView view) {
-        view.setViewName("hello");
+        view.setViewName("index");
         return view;
     }
 
@@ -44,7 +44,7 @@ public class IndividualController {
     @RequestMapping(value="individual", method = RequestMethod.GET)
     @ResponseBody
     public List<Individual> getindividuals() {
-        List<Individual> list = individualService.getAll();
+        List<Individual> list = individualService.getList();
         return list;
     }
 
@@ -56,7 +56,7 @@ public class IndividualController {
     @RequestMapping(value = "individual/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getindividual(@PathVariable Integer id) {
-        return individualService.findById(id);
+        return individualService.getById(id);
     }
 
     /**

@@ -29,22 +29,22 @@ public class AnswerController {
     /**
      *
      * @param view
-     * @return hello
+     * @return index
      */
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getCustomerd(ModelAndView view) {
-        view.setViewName("hello");
+    public ModelAndView getView(ModelAndView view) {
+        view.setViewName("index");
         return view;
     }
 
     /**
-     * get answers list
-     * @return answers list
+     * get list
+     * @return list
      */
     @RequestMapping(value="answer", method = RequestMethod.GET)
     @ResponseBody
-    public List<Answer> getanswers() {
-        List<Answer> list = answerService.getAll();
+    public List<Answer> getList() {
+        List<Answer> list = answerService.getList();
         return list;
     }
 
@@ -55,22 +55,20 @@ public class AnswerController {
      */
     @RequestMapping(value = "answer/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Object getanswer(@PathVariable Integer id) {
-        return answerService.findById(id);
+    public Object getById(@PathVariable Integer id) {
+        return answerService.getById(id);
     }
 
     /**
      * create answer
      * @param answer
-     * @return answer id (or answer, if uncommented "return answer")
+     * @return answer id
      */
     @RequestMapping(value = "answer", method = RequestMethod.POST)
     @ResponseBody
-    public Object addanswer(@RequestBody Answer answer) {
-        System.err.println(answer);
+    public Object save(@RequestBody Answer answer) {
         answerService.save(answer);
         return new Id(answer.getId());
-        //return Answer;
     }
 
     /**
@@ -80,8 +78,7 @@ public class AnswerController {
     @RequestMapping(value = "answer", method = RequestMethod.PUT)
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public void updateanswer(@RequestBody Answer answer) {
-        System.out.println(answer);
+    public void update(@RequestBody Answer answer) {
         answerService.update(answer);
     }
 
@@ -91,8 +88,18 @@ public class AnswerController {
      */
     @RequestMapping(value = "answer/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteanswer(@PathVariable Integer id) {
-        System.out.println("remove answer by id = " + id);
+    public void deleteById(@PathVariable Integer id) {
         answerService.deleteById(id);
     }
+
+    /**
+     * delete answer
+     * @param answer
+     */
+    @RequestMapping(value = "answer", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.OK)
+    public void delete(@RequestBody Answer answer) {
+        answerService.delete(answer);
+    }
+
 }

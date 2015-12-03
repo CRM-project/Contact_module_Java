@@ -33,7 +33,7 @@ public class WebsiteController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getCustomerd(ModelAndView view) {
-        view.setViewName("hello");
+        view.setViewName("index");
         return view;
     }
 
@@ -44,7 +44,7 @@ public class WebsiteController {
     @RequestMapping(value="website", method = RequestMethod.GET)
     @ResponseBody
     public List<Website> getwebsites() {
-        List<Website> list = websiteService.getAll();
+        List<Website> list = websiteService.getList();
         return list;
     }
 
@@ -56,7 +56,7 @@ public class WebsiteController {
     @RequestMapping(value = "website/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getwebsite(@PathVariable Integer id) {
-        return websiteService.findById(id);
+        return websiteService.getById(id);
     }
 
     /**

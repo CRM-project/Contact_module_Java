@@ -33,7 +33,7 @@ public class EmailController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getCustomerd(ModelAndView view) {
-        view.setViewName("hello");
+        view.setViewName("index");
         return view;
     }
 
@@ -44,7 +44,7 @@ public class EmailController {
     @RequestMapping(value="email", method = RequestMethod.GET)
     @ResponseBody
     public List<Email> getemails() {
-        List<Email> list = emailService.getAll();
+        List<Email> list = emailService.getList();
         return list;
     }
 
@@ -56,7 +56,7 @@ public class EmailController {
     @RequestMapping(value = "email/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getemail(@PathVariable Integer id) {
-        return emailService.findById(id);
+        return emailService.getById(id);
     }
 
     /**

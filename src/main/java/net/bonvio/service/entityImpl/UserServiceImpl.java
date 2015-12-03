@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAll() {
+    public List<User> getList() {
         return userGenericDAO.findAll();
     }
 
@@ -44,8 +44,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(Integer id) {
-        return userGenericDAO.findById(id);
+    public User getById(Integer id) {
+        return userGenericDAO.getById(id);
     }
 
     @Override

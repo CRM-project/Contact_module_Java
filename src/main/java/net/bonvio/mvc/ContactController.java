@@ -33,7 +33,7 @@ public class ContactController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getContactView(ModelAndView view) {
-        view.setViewName("hello");
+        view.setViewName("index");
         return view;
     }
 
@@ -44,7 +44,7 @@ public class ContactController {
     @RequestMapping(value="contact", method = RequestMethod.GET)
     @ResponseBody
     public List<Contact> getContacts() {
-        List<Contact> list = contactService.getAll();
+        List<Contact> list = contactService.getList();
         return list;
     }
 
@@ -56,7 +56,7 @@ public class ContactController {
     @RequestMapping(value = "contact/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getContactById(@PathVariable Integer id) {
-        return contactService.findById(id);
+        return contactService.getById(id);
     }
 
     /**

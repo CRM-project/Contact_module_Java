@@ -10,10 +10,10 @@ import java.util.List;
 public interface ContactService {
 
     void save(Contact contact);
-    List<Contact> getAll();
+    List<Contact> getList();
     void delete(Contact contact);
     void deleteById(Integer id);
-    Contact findById(Integer id);
+    Contact getById(Integer id);
     void update(Contact contact);
 }
 

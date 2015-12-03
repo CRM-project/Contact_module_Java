@@ -33,7 +33,7 @@ public class EmployeeController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getCustomerd(ModelAndView view) {
-        view.setViewName("hello");
+        view.setViewName("index");
         return view;
     }
 
@@ -44,7 +44,7 @@ public class EmployeeController {
     @RequestMapping(value="employee", method = RequestMethod.GET)
     @ResponseBody
     public List<Employee> getemployees() {
-        List<Employee> list = employeeService.getAll();
+        List<Employee> list = employeeService.getList();
         return list;
     }
 
@@ -56,7 +56,7 @@ public class EmployeeController {
     @RequestMapping(value = "employee/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getemployee(@PathVariable Integer id) {
-        return employeeService.findById(id);
+        return employeeService.getById(id);
     }
 
     /**

@@ -10,10 +10,10 @@ import java.util.List;
 public interface AnswerService {
 
     void save(Answer answer);
-    List<Answer> getAll();
+    List<Answer> getList();
     void delete(Answer answer);
     void deleteById(Integer id);
-    Answer findById(Integer id);
+    Answer getById(Integer id);
     void update(Answer answer);
 }
 

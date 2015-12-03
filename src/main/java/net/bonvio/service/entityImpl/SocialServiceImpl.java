@@ -27,7 +27,7 @@ public class SocialServiceImpl implements SocialService {
     }
 
     @Override
-    public List<Social> getAll() {
+    public List<Social> getList() {
         return userGenericDAO.findAll();
     }
 
@@ -42,8 +42,8 @@ public class SocialServiceImpl implements SocialService {
     }
 
     @Override
-    public Social findById(Integer id) {
-        return userGenericDAO.findById(id);
+    public Social getById(Integer id) {
+        return userGenericDAO.getById(id);
     }
 
     @Override

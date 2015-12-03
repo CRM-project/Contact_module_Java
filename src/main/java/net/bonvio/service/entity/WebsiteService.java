@@ -10,10 +10,10 @@ import java.util.List;
 public interface WebsiteService {
 
     void save(Website website);
-    List<Website> getAll();
+    List<Website> getList();
     void delete(Website website);
     void deleteById(Integer id);
-    Website findById(Integer id);
+    Website getById(Integer id);
     void update(Website website);
 }
 

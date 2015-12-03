@@ -27,7 +27,7 @@ public class WebiteServiceImpl implements WebsiteService {
     }
 
     @Override
-    public List<Website> getAll() {
+    public List<Website> getList() {
         return websiteGenericDAO.findAll();
     }
 
@@ -42,8 +42,8 @@ public class WebiteServiceImpl implements WebsiteService {
     }
 
     @Override
-    public Website findById(Integer id) {
-        return websiteGenericDAO.findById(id);
+    public Website getById(Integer id) {
+        return websiteGenericDAO.getById(id);
     }
 
     @Override

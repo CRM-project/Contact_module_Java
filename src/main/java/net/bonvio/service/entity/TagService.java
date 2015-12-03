@@ -10,9 +10,9 @@ import java.util.List;
 public interface TagService {
 
     void save(Tag tag);
-    List<Tag> getAll();
+    List<Tag> getList();
     void delete(Tag tag);
     void deleteById(Integer id);
-    Tag findById(Integer id);
+    Tag getById(Integer id);
     void update(Tag tag);
 }

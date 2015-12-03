@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -34,7 +33,7 @@ public class CompanyController {
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView getCustomerd(ModelAndView view) {
 
-        view.setViewName("hello");
+        view.setViewName("index");
 
         return view;
     }
@@ -46,7 +45,7 @@ public class CompanyController {
     @RequestMapping(value="company", method = RequestMethod.GET)
     @ResponseBody
     public List<Company> getCompanies() {
-        List<Company> list = companyService.getAll();
+        List<Company> list = companyService.getList();
         return list;
     }
 
@@ -58,7 +57,7 @@ public class CompanyController {
     @RequestMapping(value = "company/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getCompany(@PathVariable Integer id) {
-        return companyService.findById(id);
+        return companyService.getById(id);
     }
 
 

@@ -10,10 +10,10 @@ import java.util.List;
 public interface EmailService {
 
     void save(Email email);
-    List<Email> getAll();
+    List<Email> getList();
     void delete(Email email);
     void deleteById(Integer id);
-    Email findById(Integer id);
+    Email getById(Integer id);
     void update(Email email);
 }
 

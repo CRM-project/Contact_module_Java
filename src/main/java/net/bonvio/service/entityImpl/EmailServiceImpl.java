@@ -27,7 +27,7 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public List<Email> getAll() {
+    public List<Email> getList() {
         return emailGenericDAO.findAll();
     }
 
@@ -42,8 +42,8 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public Email findById(Integer id) {
-        return emailGenericDAO.findById(id);
+    public Email getById(Integer id) {
+        return emailGenericDAO.getById(id);
     }
 
     @Override

@@ -11,10 +11,10 @@ public interface CompanyService {
 
 
     void save(Company company);
-    List<Company> getAll();
+    List<Company> getList();
     void delete(Company company);
     void deleteById(Integer id);
-    Company findById(Integer id);
+    Company getById(Integer id);
     void update(Company company);
 
     List<Phone> getPhoneListByCompanyId(Integer id);
