@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by mil on 26.11.15.
  */
-public class GenericDAOImpl<T extends Serializable> implements GenericDAO<T> {
+public abstract class GenericDAOImpl<T extends Serializable> implements GenericDAO<T> {
 
     private Class<T> tClass;
 
