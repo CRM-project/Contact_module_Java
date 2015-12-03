@@ -30,6 +30,7 @@ public class AppTests {
         this.mockMvc = webAppContextSetup(this.wac).build();
     }
 
+
     @Test
     public void simple() throws Exception {
         mockMvc.perform(get("/"))
