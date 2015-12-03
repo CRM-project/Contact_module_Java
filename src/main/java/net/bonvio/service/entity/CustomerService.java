@@ -1,19 +1,14 @@
 package net.bonvio.service.entity;
 
 import net.bonvio.model.Customer;
+import net.bonvio.service.GenericService;
 
 import java.util.List;
 
 /**
  * Created by mil on 23.11.2015.
  */
-public interface CustomerService {
+public interface CustomerService extends GenericService<Customer> {
 
-    void save(Customer customer);
-    List<Customer> getList();
-    void delete(Customer customer);
-    void deleteById(Integer id);
-    Customer getById(Integer id);
-    void update(Customer customer);
 }
 

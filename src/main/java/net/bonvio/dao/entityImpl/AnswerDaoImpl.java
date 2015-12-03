@@ -15,4 +15,8 @@ import javax.persistence.EntityManager;
 @Repository
 public class AnswerDaoImpl extends GenericDAOImpl<Answer> implements AnswerDao{
 
+    public AnswerDaoImpl() {
+        System.out.println("Created AnswerDaoImpl");
+    }
+
 }

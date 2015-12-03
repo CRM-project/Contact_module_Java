@@ -1,19 +1,14 @@
 package net.bonvio.service.entity;
 
 import net.bonvio.model.Email;
+import net.bonvio.service.GenericService;
 
 import java.util.List;
 
 /**
  * Created by mil on 23.11.2015.
  */
-public interface EmailService {
+public interface EmailService extends GenericService<Email> {
 
-    void save(Email email);
-    List<Email> getList();
-    void delete(Email email);
-    void deleteById(Integer id);
-    Email getById(Integer id);
-    void update(Email email);
 }
 

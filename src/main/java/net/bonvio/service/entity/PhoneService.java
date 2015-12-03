@@ -1,19 +1,14 @@
 package net.bonvio.service.entity;
 
 import net.bonvio.model.Phone;
+import net.bonvio.service.GenericService;
 
 import java.util.List;
 
 /**
  * Created by mil on 23.11.2015.
  */
-public interface PhoneService {
+public interface PhoneService extends GenericService<Phone> {
 
-    void save(Phone phone);
-    List<Phone> getList();
-    void delete(Phone phone);
-    void deleteById(Integer id);
-    Phone getById(Integer id);
-    void update(Phone phone);
 }
 

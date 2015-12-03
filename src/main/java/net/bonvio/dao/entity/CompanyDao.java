@@ -1,5 +1,6 @@
 package net.bonvio.dao.entity;
 
+import net.bonvio.dao.GenericDAO;
 import net.bonvio.model.Company;
 import net.bonvio.model.Phone;
 import net.bonvio.model.Email;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * Created by mil on 30.11.15.
  */
-public interface CompanyDao {
+public interface CompanyDao extends GenericDAO<Company> {
     List<Phone> getPhoneListByCompanyId(Integer id);
     List<Email> getEmailListByCompanyId(Integer id);
     List<Social> getSocialListByCompanyId(Integer id);

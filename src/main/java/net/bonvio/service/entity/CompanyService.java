@@ -1,21 +1,14 @@
 package net.bonvio.service.entity;
 
 import net.bonvio.model.*;
+import net.bonvio.service.GenericService;
 
 import java.util.List;
 
 /**
  * Created by mil on 26.11.15.
  */
-public interface CompanyService {
-
-
-    void save(Company company);
-    List<Company> getList();
-    void delete(Company company);
-    void deleteById(Integer id);
-    Company getById(Integer id);
-    void update(Company company);
+public interface CompanyService extends GenericService<Company> {
 
     List<Phone> getPhoneListByCompanyId(Integer id);
     List<Email> getEmailListByCompanyId(Integer id);
