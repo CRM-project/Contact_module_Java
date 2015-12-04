@@ -1,6 +1,7 @@
 package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import net.bonvio.settings.Crudable;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,34 +11,33 @@ import java.io.Serializable;
  */
 
 @Entity
-public class Employee extends net.bonvio.settings.Id implements Serializable {
-
-
+public class Employee extends Crudable implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer id;
+    private Integer id;
 
-    public String department;
+    private String department;
 
-    public String position;
+    private String position;
 
     @OneToOne
     @JsonIgnore
-    public Individual individual;
+    private Individual individual;
 
     @ManyToOne
     @JsonIgnore
-    public Company company;
+    private Company company;
 
     @OneToOne
     @JsonIgnore
-    public User user;
+    private User user;
 
     public Employee() {
-        System.out.println("Was created Employee Class");
+
     }
 
+    @Override
     public Integer getId() {
         return id;
     }
@@ -85,4 +85,5 @@ public class Employee extends net.bonvio.settings.Id implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
+
 }

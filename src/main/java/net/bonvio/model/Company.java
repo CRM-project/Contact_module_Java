@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,15 +14,11 @@ import java.util.List;
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
-public class Company extends Contact implements Serializable {
-
-    public Company() {
-        System.out.println("Was created Company Class");
-    }
+public class Company extends Contact {
 
     @OneToMany (mappedBy = "company")
     @JsonIgnore
-    public List<Employee> employeeList = new ArrayList();
+    private List<Employee> employeeList = new ArrayList();
 
     public List<Employee> getEmployeeList() {
         return employeeList;

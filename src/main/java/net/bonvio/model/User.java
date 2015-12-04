@@ -1,7 +1,7 @@
 package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.javafx.geom.transform.Identity;
+import net.bonvio.settings.Crudable;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,35 +11,27 @@ import java.io.Serializable;
  */
 
 @Entity
-public class User extends net.bonvio.settings.Id implements Serializable {
+public class User extends Crudable implements Serializable {
 
-/*    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer id;
-
-    public String login;
-
-    @JsonIgnore
-    public String password;
-
-    @OneToOne
-    @JsonIgnore
-    @Transient
-    public Employee employee;
-
+/*
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", login='" + login + '\'' +
                 '}';
-    }*/
+    }
+*/
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String login;
-    private String password;
-    private Employee employee;
 
+    private String login;
+
+    private String password;
+
+    private Employee employee;
 
     public User() {
     }
@@ -50,8 +42,6 @@ public class User extends net.bonvio.settings.Id implements Serializable {
         this.employee = employee;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return this.id;
     }

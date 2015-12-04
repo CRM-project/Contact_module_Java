@@ -1,6 +1,7 @@
 package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import net.bonvio.settings.Crudable;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,23 +11,56 @@ import java.io.Serializable;
  */
 
 @Entity
-public class Tag extends net.bonvio.settings.Id implements Serializable {
+public class Tag extends Crudable implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
+    @Column(columnDefinition = "TEXT")
+    private String title;
+
+    @Column(columnDefinition = "TEXT")
+    private String type;
+
+    @ManyToOne
+    @JsonIgnore
+    private Contact contact;
 
     public Tag() {
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer id;
+    @Override
+    public Integer getId() {
+        return id;
+    }
 
-    @Column(columnDefinition = "TEXT")
-    public String title;
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-    @Column(columnDefinition = "TEXT")
-    public String type;
+    public String getTitle() {
+        return title;
+    }
 
-    @ManyToOne
-    @JsonIgnore
-    public Contact contact;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
 
 }

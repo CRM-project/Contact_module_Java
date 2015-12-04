@@ -2,10 +2,9 @@ package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import net.bonvio.settings.*;
+import net.bonvio.settings.Crudable;
 
 import javax.persistence.*;
-import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,43 +16,45 @@ import java.util.List;
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Inheritance(strategy= InheritanceType.JOINED)
-public class Contact extends net.bonvio.settings.Id implements Serializable {
+public class Contact extends Crudable implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer id;
+    private Integer id;
 
-    public String shortName;
+    private String shortName;
 
-    public String fullName;
+    private String fullName;
 
-    public String type;
+    private String type;
 
-    public String address;
+    private String address;
 
-    public String description;
-
-    @OneToMany (mappedBy = "contact")
-    @JsonIgnore
-    public List<Phone> phoneList = new ArrayList<>();
+    private String description;
 
     @OneToMany (mappedBy = "contact")
     @JsonIgnore
-    public List<Website> websiteList = new ArrayList<>();
+    private List<Phone> phoneList = new ArrayList<>();
 
     @OneToMany (mappedBy = "contact")
     @JsonIgnore
-    public List<Email> emailList = new ArrayList<>();
+    private List<Website> websiteList = new ArrayList<>();
 
     @OneToMany (mappedBy = "contact")
     @JsonIgnore
-    public List<Social> socialList = new ArrayList<>();
+    private List<Email> emailList = new ArrayList<>();
 
     @OneToMany (mappedBy = "contact")
     @JsonIgnore
-    public List<Tag> tagList = new ArrayList<>();
+    private List<Social> socialList = new ArrayList<>();
 
-    public Contact() {
+    @OneToMany (mappedBy = "contact")
+    @JsonIgnore
+    private List<Tag> tagList = new ArrayList<>();
+
+    @Override
+    public Integer getId() {
+        return id;
     }
 
     public void setId(Integer id) {
@@ -139,13 +140,5 @@ public class Contact extends net.bonvio.settings.Id implements Serializable {
     public void setTagList(List<Tag> tagList) {
         this.tagList = tagList;
     }
-
-    //    @Override
-//    public String toString() {
-//        return "Contact{" +
-//                "id=" + id +
-//                ", shortName='" + shortName + '\'' +
-//                '}';
-//    }
 
 }

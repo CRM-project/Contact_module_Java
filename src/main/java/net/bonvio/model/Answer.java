@@ -1,9 +1,8 @@
 package net.bonvio.model;
 
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import net.bonvio.settings.Crudable;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,34 +13,62 @@ import java.io.Serializable;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Answer extends net.bonvio.settings.Id implements Serializable {
-
-    public Answer() {
-    }
+public class Answer extends Crudable implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int id;
-    public int number;
-    public String answerText;
-    public String question;
-
+    private Integer id;
+    private Integer number;
+    private String answerText;
+    private String question;
 
     @ManyToOne
     @JsonIgnore
-    public Customer customer;
+    private Customer customer;
 
- /*   public int getId() {
+    public Answer() {
+
+    }
+
+    @Override
+    public Integer getId() {
         return id;
     }
-*/
-/*    @Override
-    public String toString() {
-        return "Answer{" +
-                "id=" + id +
-                ", number=" + number +
-                ", answerText='" + answerText + '\'' +
-                ", question='" + question + '\'' +
-                '}';
-    }*/
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public String getAnswerText() {
+        return answerText;
+    }
+
+    public void setAnswerText(String answerText) {
+        this.answerText = answerText;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
 }

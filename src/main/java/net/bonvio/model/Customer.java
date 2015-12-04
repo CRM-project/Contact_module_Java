@@ -1,6 +1,8 @@
 package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import net.bonvio.settings.Crudable;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -11,31 +13,45 @@ import java.util.List;
  */
 
 @Entity
-public class Customer extends net.bonvio.settings.Id implements Serializable {
-
-    public Customer() {
-    }
+public class Customer extends Crudable implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int id;
+    private Integer id;
 
-    public String name;
+    private String name;
 
     @OneToMany (mappedBy = "customer")
     @JsonIgnore
-    public List<Answer> answers = new ArrayList<>();
+    private List<Answer> answers = new ArrayList<>();
 
-    /*@Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+    public Customer() {
+
     }
 
-    public int getId() {
+    @Override
+    public Integer getId() {
         return id;
     }
-*/
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
 }

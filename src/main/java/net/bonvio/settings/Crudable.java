@@ -1,25 +1,24 @@
 package net.bonvio.settings;
 
 /**
- * Created by mil on 27.11.15.
- * Class Id for return Id param in post methods
+ * Created by mil on 04.12.15.
  */
-public class Id {
+public class Crudable {
 
     public Integer id;
 
     /**
      * create constructor
      */
-    public Id() {
-        System.out.println("Was created Id Class");
+    public Crudable() {
+
     }
 
     /**
      * create constructor
      * @param id
      */
-    public Id(Integer id) {
+    public Crudable(Integer id) {
         this.id = id;
     }
 

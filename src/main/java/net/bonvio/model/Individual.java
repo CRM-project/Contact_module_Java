@@ -1,23 +1,29 @@
 package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Created by mil on 24.11.2015.
  */
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
 public class Individual extends Contact {
 
     @OneToOne
     @JsonIgnore
-    public Employee employee;
+    private Employee employee;
 
-    public Individual() {
-        System.out.println("Was created Individual Class");
+    public Employee getEmployee() {
+        return employee;
     }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
 }

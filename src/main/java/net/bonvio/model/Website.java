@@ -1,7 +1,7 @@
 package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-//import com.sun.org.apache.xpath.internal.operations.String;
+import net.bonvio.settings.Crudable;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,26 +11,55 @@ import java.io.Serializable;
  */
 
 @Entity
-public class Website extends net.bonvio.settings.Id implements Serializable {
+public class Website extends Crudable implements Serializable {
 
     public Website() {
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer id;
+    private Integer id;
 
     @Column(columnDefinition = "TEXT")
-    public String websiteUrl;
+    private String websiteUrl;
 
     @Column(columnDefinition = "TEXT")
-    public String type;
+    private String type;
 
     @ManyToOne
     @JsonIgnore
-    public Contact contact;
+    private Contact contact;
 
+    @Override
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getWebsiteUrl() {
+        return websiteUrl;
+    }
+
+    public void setWebsiteUrl(String websiteUrl) {
+        this.websiteUrl = websiteUrl;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
     }
 }

@@ -21,31 +21,31 @@ public class CompanyDaoImpl extends GenericDAOImpl<Company> implements CompanyDa
     @Override
     public List<Phone> getPhoneListByCompanyId(Integer id) {
         Company company = (Company) entityManager.createQuery("select c from Company c join fetch c.phoneList where c.id = :id").setParameter("id", id).getSingleResult();
-        return company.phoneList;
+        return company.getPhoneList();
     }
 
     @Override
     public List<Email> getEmailListByCompanyId(Integer id) {
         Company company = (Company)entityManager.createQuery("select c from Company c join fetch c.emailList where c.id = :id").setParameter("id", id).getSingleResult();
-        return company.emailList;
+        return company.getEmailList();
     }
 
     @Override
     public List<Social> getSocialListByCompanyId(Integer id) {
         Company company = (Company) entityManager.createQuery("select c from Company c join fetch c.socialList where c.id = :id").setParameter("id", id).getSingleResult();
-        return company.socialList;
+        return company.getSocialList();
     }
 
     @Override
     public List<Tag> getTagListByCompanyId(Integer id) {
         Company company = (Company) entityManager.createQuery("select c from Company c join fetch c.tagList where c.id = :id").setParameter("id", id).getSingleResult();
-        return company.tagList;
+        return company.getTagList();
     }
 
     @Override
     public List<Website> getWebsiteListByCompanyId(Integer id) {
         Company company = (Company) entityManager.createQuery("select c from Company c join fetch c.websiteList where c.id = :id").setParameter("id", id).getSingleResult();
-        return company.websiteList;
+        return company.getWebsiteList();
     }
 
 }
