@@ -1,6 +1,6 @@
 package net.bonvio.mvc.generic;
 
-import net.bonvio.service.GenericService;
+import net.bonvio.service.generic.GenericService;
 import net.bonvio.settings.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,7 +48,7 @@ public class GenericController<T extends Id> {
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Object getContactById(@PathVariable Integer id) {
+    public Object getById(@PathVariable Integer id) {
         return tGenericService.getById(id);
     }
 
@@ -59,7 +59,7 @@ public class GenericController<T extends Id> {
      */
     @RequestMapping(value = "/", method = RequestMethod.POST)
     @ResponseBody
-    public Object addContactByObject(@RequestBody T t) {
+    public Object save(@RequestBody T t) {
         System.err.println(t);
         tGenericService.save(t);
         return new Id(t.getId());
@@ -71,9 +71,8 @@ public class GenericController<T extends Id> {
      * @param t
      */
     @RequestMapping(value = "/", method = RequestMethod.PUT)
-    @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public void updateContactByObject(@RequestBody T t) {
+    public void update(@RequestBody T t) {
         System.out.println(t);
         tGenericService.update(t);
     }
@@ -84,7 +83,7 @@ public class GenericController<T extends Id> {
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteContactById(@PathVariable Integer id) {
+    public void deleteById(@PathVariable Integer id) {
         System.out.println("remove contact by id = " + id);
         tGenericService.deleteById(id);
     }
