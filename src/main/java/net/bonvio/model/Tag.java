@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 
 @Entity
-public class Tag  implements Serializable {
+public class Tag extends net.bonvio.settings.Id implements Serializable {
 
     public Tag() {
     }

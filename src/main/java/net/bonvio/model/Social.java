@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 
 @Entity
-public class Social  implements Serializable {
+public class Social extends net.bonvio.settings.Id implements Serializable {
 
     public Social() {
     }

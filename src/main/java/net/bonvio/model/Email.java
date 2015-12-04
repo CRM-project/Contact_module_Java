@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 
 @Entity
-public class Email implements Serializable {
+public class Email extends net.bonvio.settings.Id implements Serializable {
 
     public Email() {
     }

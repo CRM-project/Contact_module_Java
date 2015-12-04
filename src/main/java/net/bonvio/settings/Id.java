@@ -6,7 +6,7 @@ package net.bonvio.settings;
  */
 public class Id {
 
-    public int id;
+    public Integer id;
 
     /**
      * create constructor
@@ -19,8 +19,10 @@ public class Id {
      * create constructor
      * @param id
      */
-    public Id(int id) {
+    public Id(Integer id) {
         this.id = id;
     }
+
+    public Integer getId() { return id; }
 
 }

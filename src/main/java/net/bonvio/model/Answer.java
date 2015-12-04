@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Answer implements Serializable {
+public class Answer extends net.bonvio.settings.Id implements Serializable {
 
     public Answer() {
     }
@@ -31,10 +31,10 @@ public class Answer implements Serializable {
     @JsonIgnore
     public Customer customer;
 
-    public int getId() {
+ /*   public int getId() {
         return id;
     }
-
+*/
 /*    @Override
     public String toString() {
         return "Answer{" +

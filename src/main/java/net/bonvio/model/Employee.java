@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 
 @Entity
-public class Employee implements Serializable {
+public class Employee extends net.bonvio.settings.Id implements Serializable {
 
 
 

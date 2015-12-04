@@ -2,8 +2,10 @@ package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import net.bonvio.settings.*;
 
 import javax.persistence.*;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,7 @@ import java.util.List;
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Inheritance(strategy= InheritanceType.JOINED)
-public class Contact implements Serializable {
+public class Contact extends net.bonvio.settings.Id implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -52,10 +54,6 @@ public class Contact implements Serializable {
     public List<Tag> tagList = new ArrayList<>();
 
     public Contact() {
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public void setId(Integer id) {

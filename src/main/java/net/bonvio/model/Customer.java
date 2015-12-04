@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 @Entity
-public class Customer implements Serializable {
+public class Customer extends net.bonvio.settings.Id implements Serializable {
 
     public Customer() {
     }
@@ -26,7 +26,7 @@ public class Customer implements Serializable {
     @JsonIgnore
     public List<Answer> answers = new ArrayList<>();
 
-    @Override
+    /*@Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
@@ -37,5 +37,5 @@ public class Customer implements Serializable {
     public int getId() {
         return id;
     }
-
+*/
 }
