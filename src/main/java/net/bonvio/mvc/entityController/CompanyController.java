@@ -23,31 +23,31 @@ public class CompanyController extends GenericController<Company> {
     @Autowired
     CompanyService companyService;
 
-    @RequestMapping(value = "company/getemaillist/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "email/{id}", method = RequestMethod.GET)
     @ResponseBody
     public List<Email> getEmails(@PathVariable Integer id) {
         return companyService.getEmailListByCompanyId(id);
     }
 
-    @RequestMapping(value = "company/getphonelist/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "phone/{id}", method = RequestMethod.GET)
     @ResponseBody
     public List<Phone> getPhones(@PathVariable Integer id) {
         return companyService.getPhoneListByCompanyId(id);
     }
 
-    @RequestMapping(value = "company/getsociallist/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "social/{id}", method = RequestMethod.GET)
     @ResponseBody
     public List<Social> getSocial(@PathVariable Integer id) {
         return companyService.getSocialListByCompanyId(id);
     }
 
-    @RequestMapping(value = "company/gettaglist/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "tag/{id}", method = RequestMethod.GET)
     @ResponseBody
     public List<Tag> getTags(@PathVariable Integer id) {
         return companyService.getTagListByCompanyId(id);
     }
 
-    @RequestMapping(value = "company/getwebsitelist/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "website/{id}", method = RequestMethod.GET)
     @ResponseBody
     public List<Website> getWebSite(@PathVariable Integer id) {
         return companyService.getWebsiteListByCompanyId(id);
