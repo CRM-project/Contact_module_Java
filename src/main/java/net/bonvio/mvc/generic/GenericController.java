@@ -1,19 +1,18 @@
 package net.bonvio.mvc.generic;
 
 import net.bonvio.service.generic.GenericService;
-import net.bonvio.settings.Crudable;
-import net.bonvio.settings.ReturnId;
+import net.bonvio.settings.IdValidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+
 import java.util.List;
 
 /**
  * Created by mil on 04.12.15.
  */
 
-public class GenericController<T extends Crudable> {
+public class GenericController<T extends IdValidate> {
 
     /**
      *
@@ -63,7 +62,7 @@ public class GenericController<T extends Crudable> {
     public Object save(@RequestBody T t) {
         System.err.println(t);
         tGenericService.save(t);
-        return new ReturnId(t.id);
+        return new IdValidate(t.getId());
         //return t;
     }
 

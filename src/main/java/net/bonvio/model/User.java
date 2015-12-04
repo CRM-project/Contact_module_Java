@@ -1,7 +1,7 @@
 package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import net.bonvio.settings.Crudable;
+import net.bonvio.settings.IdValidate;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 
 @Entity
-public class User extends Crudable implements Serializable {
+public class User extends IdValidate implements Serializable {
 
 /*
     @Override
