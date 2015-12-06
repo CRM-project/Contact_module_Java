@@ -18,7 +18,7 @@ public class Company extends Contact {
 
     @OneToMany (mappedBy = "company")
     @JsonIgnore
-    private List<Employee> employeeList = new ArrayList();
+    private List<Employee> employeeList = new ArrayList<>();
 
     public List<Employee> getEmployeeList() {
         return employeeList;
