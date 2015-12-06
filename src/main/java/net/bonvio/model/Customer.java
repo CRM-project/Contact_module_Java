@@ -1,7 +1,7 @@
 package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import net.bonvio.settings.IdValidate;
+import net.bonvio.settings.ResponseId;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 @Entity
-public class Customer extends IdValidate implements Serializable {
+public class Customer extends ResponseId implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

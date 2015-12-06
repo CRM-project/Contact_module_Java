@@ -1,12 +1,19 @@
 package net.bonvio.mvc.entityController;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import net.bonvio.model.*;
 import net.bonvio.mvc.generic.GenericController;
 import net.bonvio.service.entityInterface.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import sun.invoke.empty.Empty;
 
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,9 +32,21 @@ public class CompanyController extends GenericController<Company> {
 
     @RequestMapping(value = "email/{id}", method = RequestMethod.GET)
     @ResponseBody
+    public ResponseEntity<List<Email>> listAllEmails(@PathVariable Integer id) {
+        List<Email> emailArrayList = new ArrayList<>();
+
+        emailArrayList = companyService.getEmailListByCompanyId(id);
+        if (emailArrayList == null) {
+            return null;
+        }
+        else return new ResponseEntity<List<Email>>(companyService.getEmailListByCompanyId(id), HttpStatus.OK);
+    }
+
+    /*@RequestMapping(value = "email1/{id}", method = RequestMethod.GET)
+    @ResponseBody
     public List<Email> getEmails(@PathVariable Integer id) {
         return companyService.getEmailListByCompanyId(id);
-    }
+    }*/
 
     @RequestMapping(value = "phone/{id}", method = RequestMethod.GET)
     @ResponseBody

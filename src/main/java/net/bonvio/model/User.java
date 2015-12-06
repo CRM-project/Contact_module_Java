@@ -1,7 +1,7 @@
 package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import net.bonvio.settings.IdValidate;
+import net.bonvio.settings.ResponseId;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 
 @Entity
-public class User extends IdValidate implements Serializable {
+public class User extends ResponseId implements Serializable {
 
 /*
     @Override

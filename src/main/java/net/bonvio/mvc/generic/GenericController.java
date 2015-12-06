@@ -1,7 +1,7 @@
 package net.bonvio.mvc.generic;
 
 import net.bonvio.service.generic.GenericService;
-import net.bonvio.settings.IdValidate;
+import net.bonvio.settings.ResponseId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.List;
  * Created by mil on 04.12.15.
  */
 
-public class GenericController<T extends IdValidate> {
+public class GenericController<T extends ResponseId> {
 
     /**
      *
@@ -62,7 +62,7 @@ public class GenericController<T extends IdValidate> {
     public Object save(@RequestBody T t) {
         System.err.println(t);
         tGenericService.save(t);
-        return new IdValidate(t.getId());
+        return new ResponseId(t.getId());
         //return t;
     }
 
