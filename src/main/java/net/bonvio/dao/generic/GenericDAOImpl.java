@@ -1,6 +1,7 @@
 package net.bonvio.dao.generic;
 
 import net.bonvio.dao.generic.GenericDAO;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,6 +11,8 @@ import java.util.List;
 /**
  * Created by mil on 26.11.15.
  */
+
+@Repository
 public abstract class GenericDAOImpl<T extends Serializable> implements GenericDAO<T> {
 
     private Class<T> tClass;

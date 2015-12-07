@@ -4,8 +4,11 @@ import net.bonvio.service.generic.GenericService;
 import net.bonvio.settings.ResponseId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,49 +17,44 @@ import java.util.List;
 
 public class GenericController<T extends ResponseId> {
 
-    /**
-     *
-     */
     @Autowired
-    GenericService<T> tGenericService;
+    private GenericService<T> tGenericService;
 
-    /**
-     *
-     * @param view
-     * @return
-     */
-    /*@RequestMapping(method = RequestMethod.GET)
-    public ModelAndView getView(ModelAndView view) {
-        view.setViewName("index");
-        return view;
-    }*/
 
-    /**
-     *
-     * @return
-     */
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(
+            value = "",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    @ResponseBody
+    public ResponseEntity<List<T>> getList() {
+        List<T> tList = null;
+        try {
+            tList = tGenericService.getList();
+            if (tList == null) {
+                tList = new ArrayList<>();
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<List<T>>(tList, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<List<T>>(tGenericService.getList(), HttpStatus.OK);
+    }
+
+/*    @RequestMapping(
+            value = "",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<T> getList() {
         return tGenericService.getList();
-    }
+    }*/
 
-    /**
-     *
-     * @param id
-     * @return
-     */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object getById(@PathVariable Integer id) {
         return tGenericService.getById(id);
     }
 
-    /**
-     * create t
-     * @param t
-     * @return contact id (or contact, if uncommented "return contact")
-     */
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
     public Object save(@RequestBody T t) {
@@ -66,10 +64,6 @@ public class GenericController<T extends ResponseId> {
         //return t;
     }
 
-    /**
-     * update t
-     * @param t
-     */
     @RequestMapping(value = "", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@RequestBody T t) {
@@ -77,10 +71,6 @@ public class GenericController<T extends ResponseId> {
         tGenericService.update(t);
     }
 
-    /**
-     * delete contact by id
-     * @param id
-     */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void deleteById(@PathVariable Integer id) {
