@@ -15,9 +15,6 @@ import java.util.List;
 @Repository
 public class CompanyDaoImpl extends GenericDAOImpl<Company> implements CompanyDao {
 
-    @PersistenceContext
-    EntityManager entityManager;
-
     @Override
     public List<Phone> getPhoneListByCompanyId(Integer id) {
         Company company = (Company) entityManager.createQuery("select c from Company c join fetch c.phoneList where c.id = :id").setParameter("id", id).getSingleResult();

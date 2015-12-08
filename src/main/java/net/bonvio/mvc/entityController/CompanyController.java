@@ -3,6 +3,7 @@ package net.bonvio.mvc.entityController;
 import net.bonvio.model.*;
 import net.bonvio.mvc.generic.GenericController;
 import net.bonvio.service.entityInterface.CompanyService;
+import net.bonvio.settings.ResponseId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,11 +22,24 @@ import java.util.List;
 @RequestMapping("/company")
 public class CompanyController extends GenericController<Company> {
 
-    /**
-     * Autowired
-     */
     @Autowired
     CompanyService companyService;
+
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    @ResponseBody
+    public Object save(@RequestBody Company company) {
+        company.setType("company");
+        companyService.save(company);
+        return new ResponseId(company.getId());
+        //return t;
+    }
+
+    @RequestMapping(value = "", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.OK)
+    public void update(@RequestBody Company company) {
+        company.setType("company");
+        companyService.update(company);
+    }
 
     @RequestMapping(
             value = "email/{id}",

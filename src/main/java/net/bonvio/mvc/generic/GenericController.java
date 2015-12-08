@@ -58,7 +58,6 @@ public class GenericController<T extends ResponseId> {
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
     public Object save(@RequestBody T t) {
-        System.err.println(t);
         tGenericService.save(t);
         return new ResponseId(t.getId());
         //return t;
@@ -67,14 +66,12 @@ public class GenericController<T extends ResponseId> {
     @RequestMapping(value = "", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@RequestBody T t) {
-        System.out.println(t);
         tGenericService.update(t);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void deleteById(@PathVariable Integer id) {
-        System.out.println("remove contact by id = " + id);
         tGenericService.deleteById(id);
     }
 

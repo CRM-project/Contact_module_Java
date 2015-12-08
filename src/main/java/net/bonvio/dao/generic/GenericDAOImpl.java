@@ -23,7 +23,7 @@ public abstract class GenericDAOImpl<T extends Serializable> implements GenericD
     }
 
     @PersistenceContext
-    private EntityManager entityManager;
+    protected EntityManager entityManager;
 
     @Override
     public List<T> getList() { return entityManager.createQuery("SELECT entity FROM " + tClass.getSimpleName() + " entity").getResultList();
