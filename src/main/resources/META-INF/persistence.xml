@@ -20,6 +20,8 @@
         <class>net.bonvio.model.Social</class>
         <class>net.bonvio.model.Individual</class>
         <class>net.bonvio.model.Company</class>
+        <class>net.bonvio.model.Task</class>
+
 
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
@@ -28,12 +30,15 @@
                       value="utf8"/>
 
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <!--<property name="hibernate.connection.url" value="jdbc:mysql://192.168.50.77:3306/crm" />-->
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/crm" />
+
+            <property name="hibernate.connection.url" value="jdbc:mysql://192.168.50.77:3306/crm_dev" />
+            <!--<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/crm" />-->
             <!--<property name="hibernate.connection.url" value="jdbc:mysql://5.101.153.18:3306/mil_crm" />-->
-            <!--<property name="hibernate.connection.username" value="external" />-->
-            <property name="hibernate.connection.username" value="root" />
+
+            <property name="hibernate.connection.username" value="external" />
+            <!--<property name="hibernate.connection.username" value="root" />-->
             <!--<property name="hibernate.connection.username" value="mil_crm" />-->
+
             <property name="hibernate.connection.password" value="y3l0l3k0r" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
 

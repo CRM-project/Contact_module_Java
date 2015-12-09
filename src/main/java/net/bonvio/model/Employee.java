@@ -5,6 +5,8 @@ import net.bonvio.settings.ResponseId;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by mil on 23.11.2015.
@@ -32,6 +34,14 @@ public class Employee extends ResponseId implements Serializable {
     @OneToOne
     @JsonIgnore
     private User user;
+
+    @OneToMany(mappedBy = "employeeOwner")
+    @JsonIgnore
+    private List<Task> taskList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "employeeExecutor")
+    @JsonIgnore
+    private List<Task> todoList = new ArrayList<>();
 
     public Employee() {
 
@@ -86,4 +96,19 @@ public class Employee extends ResponseId implements Serializable {
         this.user = user;
     }
 
+    public List<Task> getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(List<Task> taskList) {
+        this.taskList = taskList;
+    }
+
+    public List<Task> getTodoList() {
+        return todoList;
+    }
+
+    public void setTodoList(List<Task> todoList) {
+        this.todoList = todoList;
+    }
 }
