@@ -23,12 +23,12 @@ public class Task extends ResponseId implements Serializable {
     private Date dateCreate;
     private Date dateClose;
 
-    @ManyToOne
-    @JsonIgnore
-    public Employee employeeOwner;
+    @ManyToOne //(fetch = FetchType.LAZY)
+    //@JsonIgnore
+    private Employee employeeOwner;
 
-    @ManyToOne
-    @JsonIgnore
+    @ManyToOne //(fetch = FetchType.LAZY)
+    //@JsonIgnore
     private Employee employeeExecutor;
 
     public Task() {
