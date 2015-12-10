@@ -15,25 +15,17 @@ import java.util.List;
 @Entity
 public class Customer extends ResponseId implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
     private String name;
 
-    @OneToMany (mappedBy = "customer")
-    @JsonIgnore
     private List<Answer> answers = new ArrayList<>();
 
-    public Customer() {
-
-    }
-
     @Override
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -41,15 +33,16 @@ public class Customer extends ResponseId implements Serializable {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
 
+    @OneToMany (mappedBy = "customer")
+    @JsonIgnore
+    @Transient
     public List<Answer> getAnswers() {
         return answers;
     }
-
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
     }

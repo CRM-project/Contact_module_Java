@@ -15,26 +15,18 @@ import java.io.Serializable;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Answer extends ResponseId implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private Integer number;
     private String answerText;
     private String question;
-
-    @ManyToOne
-    @JsonIgnore
     private Customer customer;
 
-    public Answer() {
-
-    }
-
     @Override
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -42,7 +34,6 @@ public class Answer extends ResponseId implements Serializable {
     public Integer getNumber() {
         return number;
     }
-
     public void setNumber(Integer number) {
         this.number = number;
     }
@@ -50,7 +41,6 @@ public class Answer extends ResponseId implements Serializable {
     public String getAnswerText() {
         return answerText;
     }
-
     public void setAnswerText(String answerText) {
         this.answerText = answerText;
     }
@@ -58,15 +48,16 @@ public class Answer extends ResponseId implements Serializable {
     public String getQuestion() {
         return question;
     }
-
     public void setQuestion(String question) {
         this.question = question;
     }
 
+    @ManyToOne
+    @JsonIgnore
+    @Transient
     public Customer getCustomer() {
         return customer;
     }
-
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }

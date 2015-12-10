@@ -15,28 +15,17 @@ import java.io.Serializable;
 @Entity
 public class Social extends ResponseId implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @Column(columnDefinition = "TEXT")
     private String socialUrl;
-
-    @Column(columnDefinition = "TEXT")
     private String type;
-
-    @ManyToOne
-    @JsonIgnore
     private Contact contact;
 
-    public Social() {
-    }
-
     @Override
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -44,7 +33,6 @@ public class Social extends ResponseId implements Serializable {
     public String getSocialUrl() {
         return socialUrl;
     }
-
     public void setSocialUrl(String socialUrl) {
         this.socialUrl = socialUrl;
     }
@@ -52,15 +40,16 @@ public class Social extends ResponseId implements Serializable {
     public String getType() {
         return type;
     }
-
     public void setType(String type) {
         this.type = type;
     }
 
+    @ManyToOne
+    @JsonIgnore
+    @Transient
     public Contact getContact() {
         return contact;
     }
-
     public void setContact(Contact contact) {
         this.contact = contact;
     }

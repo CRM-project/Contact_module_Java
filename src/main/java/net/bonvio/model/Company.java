@@ -16,14 +16,14 @@ import java.util.List;
 @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
 public class Company extends Contact {
 
-    @OneToMany (mappedBy = "company")
-    @JsonIgnore
     private List<Employee> employeeList = new ArrayList<>();
 
+    @OneToMany (mappedBy = "company")
+    @JsonIgnore
+    @Transient
     public List<Employee> getEmployeeList() {
         return employeeList;
     }
-
     public void setEmployeeList(List<Employee> employeeList) {
         this.employeeList = employeeList;
     }

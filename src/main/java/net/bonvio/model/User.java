@@ -13,39 +13,16 @@ import java.io.Serializable;
 @Entity
 public class User extends ResponseId implements Serializable {
 
-/*
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                '}';
-    }
-*/
+    private Integer id;
+    private String login;
+    private String password;
+    private Employee employee;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
-    private String login;
-
-    private String password;
-
-    private Employee employee;
-
-    public User() {
-    }
-
-    public User(String login, String password, Employee employee) {
-        this.login = login;
-        this.password = password;
-        this.employee = employee;
-    }
-
     public Integer getId() {
         return this.id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -53,7 +30,6 @@ public class User extends ResponseId implements Serializable {
     public String getLogin() {
         return login;
     }
-
     public void setLogin(String login) {
         this.login = login;
     }
@@ -62,20 +38,27 @@ public class User extends ResponseId implements Serializable {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
 
     @OneToOne
-    @JsonIgnore
+    //@JsonIgnore
     @Transient
     public Employee getEmployee() {
         return employee;
     }
-
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", employee=" + employee +
+                '}';
     }
 }
 

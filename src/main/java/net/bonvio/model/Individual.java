@@ -14,14 +14,14 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
 public class Individual extends Contact {
 
-    @OneToOne
-    @JsonIgnore
     private Employee employee;
 
+    @OneToOne
+    @JsonIgnore
+    @Transient
     public Employee getEmployee() {
         return employee;
     }
-
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }

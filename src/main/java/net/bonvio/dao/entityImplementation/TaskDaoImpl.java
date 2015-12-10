@@ -15,7 +15,7 @@ public class TaskDaoImpl extends GenericDAOImpl<Task> {
 
 /*    public List<Task> getList() {
         return entityManager.createQuery("SELECT entity FROM Task entity "
-                //+                "join fetch entity.employeeExecutor"
+                //+                "join fetch entity.employee"
                 )
                 .getResultList();
     }*/

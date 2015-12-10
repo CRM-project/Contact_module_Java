@@ -15,43 +15,21 @@ import java.util.List;
 @Entity
 public class Employee extends ResponseId implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
     private String department;
-
     private String position;
-
-    @OneToOne
-    @JsonIgnore
     private Individual individual;
-
-    @ManyToOne
-    @JsonIgnore
     private Company company;
-
-    @OneToOne
-    @JsonIgnore
     private User user;
-
-    @OneToMany(mappedBy = "employeeOwner")
-    @JsonIgnore
     private List<Task> taskList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "employeeExecutor")
-    @JsonIgnore
     private List<Task> todoList = new ArrayList<>();
 
-    public Employee() {
-
-    }
-
     @Override
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -59,7 +37,6 @@ public class Employee extends ResponseId implements Serializable {
     public String getDepartment() {
         return department;
     }
-
     public void setDepartment(String department) {
         this.department = department;
     }
@@ -67,48 +44,58 @@ public class Employee extends ResponseId implements Serializable {
     public String getPosition() {
         return position;
     }
-
     public void setPosition(String position) {
         this.position = position;
     }
 
+    @OneToOne
+    @JsonIgnore
+    @Transient
     public Individual getIndividual() {
         return individual;
     }
-
     public void setIndividual(Individual individual) {
         this.individual = individual;
     }
 
+    @ManyToOne
+    @JsonIgnore
+    @Transient
     public Company getCompany() {
         return company;
     }
-
     public void setCompany(Company company) {
         this.company = company;
     }
 
+    @OneToOne
+    @JsonIgnore
+    @Transient
     public User getUser() {
         return user;
     }
-
     public void setUser(User user) {
         this.user = user;
     }
 
+    @OneToMany(mappedBy = "employeer")
+    @JsonIgnore
+    @Transient
     public List<Task> getTaskList() {
         return taskList;
     }
-
     public void setTaskList(List<Task> taskList) {
         this.taskList = taskList;
     }
 
+    @OneToMany(mappedBy = "employee")
+    @JsonIgnore
+    @Transient
     public List<Task> getTodoList() {
         return todoList;
     }
-
     public void setTodoList(List<Task> todoList) {
         this.todoList = todoList;
     }
+
 }

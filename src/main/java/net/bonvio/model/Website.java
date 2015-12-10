@@ -13,28 +13,17 @@ import java.io.Serializable;
 @Entity
 public class Website extends ResponseId implements Serializable {
 
-    public Website() {
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @Column(columnDefinition = "TEXT")
     private String websiteUrl;
-
-    @Column(columnDefinition = "TEXT")
     private String type;
-
-    @ManyToOne
-    @JsonIgnore
     private Contact contact;
 
     @Override
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -42,7 +31,6 @@ public class Website extends ResponseId implements Serializable {
     public String getWebsiteUrl() {
         return websiteUrl;
     }
-
     public void setWebsiteUrl(String websiteUrl) {
         this.websiteUrl = websiteUrl;
     }
@@ -50,15 +38,16 @@ public class Website extends ResponseId implements Serializable {
     public String getType() {
         return type;
     }
-
     public void setType(String type) {
         this.type = type;
     }
 
+    @ManyToOne
+    @JsonIgnore
+    @Transient
     public Contact getContact() {
         return contact;
     }
-
     public void setContact(Contact contact) {
         this.contact = contact;
     }

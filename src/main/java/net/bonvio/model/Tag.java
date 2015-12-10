@@ -13,28 +13,17 @@ import java.io.Serializable;
 @Entity
 public class Tag extends ResponseId implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @Column(columnDefinition = "TEXT")
     private String title;
-
-    @Column(columnDefinition = "TEXT")
     private String type;
-
-    @ManyToOne
-    @JsonIgnore
     private Contact contact;
 
-    public Tag() {
-    }
-
     @Override
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -42,7 +31,6 @@ public class Tag extends ResponseId implements Serializable {
     public String getTitle() {
         return title;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -50,15 +38,16 @@ public class Tag extends ResponseId implements Serializable {
     public String getType() {
         return type;
     }
-
     public void setType(String type) {
         this.type = type;
     }
 
+    @ManyToOne
+    @JsonIgnore
+    @Transient
     public Contact getContact() {
         return contact;
     }
-
     public void setContact(Contact contact) {
         this.contact = contact;
     }

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<persistence xmlns="http://java.sun.com/xml/ns/persistence"
-             version="1.0">
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
 
       <!-- work with MySQL-->
-    <persistence-unit name="mysql"
-                      transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="mysql" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <class>net.bonvio.model.Answer</class>
@@ -22,8 +20,6 @@
         <class>net.bonvio.model.Company</class>
         <class>net.bonvio.model.Task</class>
 
-
-
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.connection.characterEncoding"
@@ -31,20 +27,17 @@
 
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
 
-            <property name="hibernate.connection.url" value="jdbc:mysql://192.168.50.77:3306/crm_dev" />
-            <!--<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/crm" />-->
-            <!--<property name="hibernate.connection.url" value="jdbc:mysql://5.101.153.18:3306/mil_crm" />-->
+            <!--<property name="hibernate.connection.url" value="jdbc:mysql://192.168.50.77:3306/crm_dev" />-->
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/crm" />
 
-            <property name="hibernate.connection.username" value="external" />
-            <!--<property name="hibernate.connection.username" value="root" />-->
-            <!--<property name="hibernate.connection.username" value="mil_crm" />-->
+            <!--<property name="hibernate.connection.username" value="external" />-->
+            <property name="hibernate.connection.username" value="root" />
 
             <property name="hibernate.connection.password" value="y3l0l3k0r" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
 
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
-
             <property name="hibernate.c3p0.acquire_increment" value="3"/>
             <property name="hibernate.c3p0.idle_test_period" value="14400"/>
             <property name="hibernate.c3p0.timeout" value="25200"/>
@@ -52,13 +45,6 @@
             <property name="hibernate.c3p0.min_size" value="3"/>
             <property name="hibernate.c3p0.max_statements" value="0"/>
             <property name="hibernate.c3p0.preferredTestQuery" value="select 1;"/>
-
-
-            <!--
-            to prevent DB connection timeout (default MySQL timeout: 8h)
-            http://java.dzone.com/articles/jpa-tutorial-setting
-            -->
-
 
         </properties>
     </persistence-unit>

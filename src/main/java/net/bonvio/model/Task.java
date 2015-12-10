@@ -14,31 +14,21 @@ import java.util.Date;
 @Entity
 public class Task extends ResponseId implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
     private String name;
     private String description;
     private Date dateCreate;
     private Date dateClose;
-
-    @ManyToOne //(fetch = FetchType.LAZY)
-    //@JsonIgnore
-    private Employee employeeOwner;
-
-    @ManyToOne //(fetch = FetchType.LAZY)
-    //@JsonIgnore
-    private Employee employeeExecutor;
-
-    public Task() {
-    }
+    private Integer status;
+    private Employee employeer;
+    private Employee employee;
 
     @Override
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -46,7 +36,6 @@ public class Task extends ResponseId implements Serializable {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -54,7 +43,6 @@ public class Task extends ResponseId implements Serializable {
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -62,7 +50,6 @@ public class Task extends ResponseId implements Serializable {
     public Date getDateCreate() {
         return dateCreate;
     }
-
     public void setDateCreate(Date dateCreate) {
         this.dateCreate = dateCreate;
     }
@@ -70,24 +57,36 @@ public class Task extends ResponseId implements Serializable {
     public Date getDateClose() {
         return dateClose;
     }
-
     public void setDateClose(Date dateClose) {
         this.dateClose = dateClose;
     }
 
-    public Employee getEmployeeOwner() {
-        return employeeOwner;
+    //@ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne (fetch = FetchType.EAGER)
+    //@JsonIgnore
+    @Transient
+    public Employee getEmployeer() {
+        return employeer;
+    }
+    public void setEmployeer(Employee employeer) {
+        this.employeer = employeer;
     }
 
-    public void setEmployeeOwner(Employee employeeOwner) {
-        this.employeeOwner = employeeOwner;
+    @ManyToOne //(fetch = FetchType.LAZY)
+    //@JsonIgnore
+    @Transient
+    public Employee getEmployee() {
+        return employee;
+    }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
-    public Employee getEmployeeExecutor() {
-        return employeeExecutor;
+    public Integer getStatus() {
+        return status;
+    }
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public void setEmployeeExecutor(Employee employeeExecutor) {
-        this.employeeExecutor = employeeExecutor;
-    }
 }
