@@ -6,8 +6,6 @@ import net.bonvio.settings.ResponseId;
 import javax.persistence.*;
 import java.io.Serializable;
 
-//import com.sun.org.apache.xpath.internal.operations.String;
-
 /**
  * Created by mil on 23.11.2015.
  */
@@ -18,7 +16,7 @@ public class Phone extends ResponseId implements Serializable {
     private Integer id;
     private String phone;
     private String type;
-    private Contact contact;
+    private ContactInfo contactInfo;
 
     @Override
     @Id
@@ -47,11 +45,11 @@ public class Phone extends ResponseId implements Serializable {
     @ManyToOne
     @JsonIgnore
     @Transient
-    public Contact getContact() {
-        return contact;
+    public ContactInfo getContactInfo() {
+        return contactInfo;
     }
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public void setContactInfo(ContactInfo contactInfo) {
+        this.contactInfo = contactInfo;
     }
 
 }

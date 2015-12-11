@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
-public class Company extends Contact {
+public class Company extends ContactInfo {
 
     private List<Employee> employeeList = new ArrayList<>();
 

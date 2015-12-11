@@ -1,6 +1,6 @@
 package net.bonvio.service.entityImplementation;
 
-import net.bonvio.model.Contact;
+import net.bonvio.model.ContactInfo;
 import net.bonvio.service.generic.GenericServiceImpl;
 import net.bonvio.service.entityInterface.ContactService;
 import org.springframework.stereotype.Service;
@@ -12,6 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class ContactServiceImpl extends GenericServiceImpl<Contact> implements ContactService {
+public class ContactServiceImpl extends GenericServiceImpl<ContactInfo> implements ContactService {
 
 }

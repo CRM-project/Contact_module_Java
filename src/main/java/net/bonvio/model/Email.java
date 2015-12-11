@@ -16,7 +16,7 @@ public class Email extends ResponseId implements Serializable {
     private Integer id;
     private String email;
     private String type;
-    private Contact contact;
+    private ContactInfo contactInfo;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,10 +44,10 @@ public class Email extends ResponseId implements Serializable {
     @ManyToOne
     @JsonIgnore
     @Transient
-    public Contact getContact() {
-        return contact;
+    public ContactInfo getContactInfo() {
+        return contactInfo;
     }
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public void setContactInfo(ContactInfo contactInfo) {
+        this.contactInfo = contactInfo;
     }
 }

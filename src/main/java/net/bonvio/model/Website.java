@@ -16,7 +16,7 @@ public class Website extends ResponseId implements Serializable {
     private Integer id;
     private String websiteUrl;
     private String type;
-    private Contact contact;
+    private ContactInfo contactInfo;
 
     @Override
     @Id
@@ -45,10 +45,10 @@ public class Website extends ResponseId implements Serializable {
     @ManyToOne
     @JsonIgnore
     @Transient
-    public Contact getContact() {
-        return contact;
+    public ContactInfo getContactInfo() {
+        return contactInfo;
     }
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public void setContactInfo(ContactInfo contactInfo) {
+        this.contactInfo = contactInfo;
     }
 }

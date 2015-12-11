@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
-public class Individual extends Contact {
+public class Individual extends ContactInfo {
 
     private Employee employee;
 

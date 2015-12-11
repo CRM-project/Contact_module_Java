@@ -78,7 +78,7 @@ public class Employee extends ResponseId implements Serializable {
         this.user = user;
     }
 
-    @OneToMany(mappedBy = "employeer")
+    @OneToMany(mappedBy = "employer")
     @JsonIgnore
     @Transient
     public List<Task> getTaskList() {

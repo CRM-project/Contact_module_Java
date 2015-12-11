@@ -1,6 +1,5 @@
 package net.bonvio.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.bonvio.settings.ResponseId;
 
 import javax.persistence.*;
@@ -20,7 +19,7 @@ public class Task extends ResponseId implements Serializable {
     private Date dateCreate;
     private Date dateClose;
     private Integer status;
-    private Employee employeer;
+    private Employee employer;
     private Employee employee;
 
     @Override
@@ -65,11 +64,11 @@ public class Task extends ResponseId implements Serializable {
     @ManyToOne (fetch = FetchType.EAGER)
     //@JsonIgnore
     @Transient
-    public Employee getEmployeer() {
-        return employeer;
+    public Employee getEmployer() {
+        return employer;
     }
-    public void setEmployeer(Employee employeer) {
-        this.employeer = employeer;
+    public void setEmployer(Employee employer) {
+        this.employer = employer;
     }
 
     @ManyToOne //(fetch = FetchType.LAZY)

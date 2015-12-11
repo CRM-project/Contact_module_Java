@@ -1,7 +1,7 @@
 package net.bonvio.dao.entityImplementation;
 
 import net.bonvio.dao.generic.GenericDAOImpl;
-import net.bonvio.model.Contact;
+import net.bonvio.model.ContactInfo;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public class ContactDaoImpl extends GenericDAOImpl<Contact> {
+public class ContactDaoImpl extends GenericDAOImpl<ContactInfo> {
 }
