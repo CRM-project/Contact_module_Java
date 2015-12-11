@@ -6,10 +6,9 @@ import net.bonvio.settings.ResponseId;
 import javax.persistence.*;
 import java.io.Serializable;
 
-//import com.sun.org.apache.xpath.internal.operations.String;
-
 /**
  * Created by mil on 23.11.2015.
+ * banana
  */
 
 @Entity
@@ -46,7 +45,6 @@ public class Social extends ResponseId implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    @Transient
     public ContactInfo getContactInfo() {
         return contactInfo;
     }

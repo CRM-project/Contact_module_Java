@@ -10,7 +10,7 @@
         <class>net.bonvio.model.Customer</class>
         <class>net.bonvio.model.User</class>
         <class>net.bonvio.model.ContactInfo</class>
-        <!--<class>net.bonvio.model.Contact</class>-->
+        <class>net.bonvio.model.Contact</class>
         <class>net.bonvio.model.Tag</class>
         <class>net.bonvio.model.Employee</class>
         <class>net.bonvio.model.Phone</class>

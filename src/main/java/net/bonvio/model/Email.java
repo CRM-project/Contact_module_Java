@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 /**
  * Created by mil on 23.11.2015.
+ * banana
  */
 
 @Entity
@@ -43,7 +44,6 @@ public class Email extends ResponseId implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    @Transient
     public ContactInfo getContactInfo() {
         return contactInfo;
     }

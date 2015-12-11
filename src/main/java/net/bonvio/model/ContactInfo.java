@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Created by mil on 23.11.2015.
+ * banana
  */
 
 @Entity
@@ -30,6 +31,9 @@ public class ContactInfo extends ResponseId implements Serializable {
     private List<Email> emailList = new ArrayList<>();
     private List<Social> socialList = new ArrayList<>();
     private List<Tag> tagList = new ArrayList<>();
+
+    private List<Contact> contactFrom = new ArrayList<>();
+    private List<Contact> contactTo = new ArrayList<>();
 
     @Override
     @Id
@@ -126,4 +130,23 @@ public class ContactInfo extends ResponseId implements Serializable {
         this.tagList = tagList;
     }
 
+    @OneToMany (mappedBy = "contactFrom")
+    @JsonIgnore
+    @Transient
+    public List<Contact> getContactFrom() {
+        return contactFrom;
+    }
+    public void setContactFrom(List<Contact> contactFrom) {
+        this.contactFrom = contactFrom;
+    }
+
+    @OneToMany (mappedBy = "contactTo")
+    @JsonIgnore
+    @Transient
+    public List<Contact> getContactTo() {
+        return contactTo;
+    }
+    public void setContactTo(List<Contact> contactTo) {
+        this.contactTo = contactTo;
+    }
 }
