@@ -21,7 +21,6 @@ public class Employee extends ResponseId implements Serializable {
     private String position;
     private Individual individual;
     private Company company;
-    private User user;
     private List<Task> taskList = new ArrayList<>();
     private List<Task> todoList = new ArrayList<>();
 
@@ -51,7 +50,6 @@ public class Employee extends ResponseId implements Serializable {
 
     @OneToOne
     @JsonIgnore
-
     public Individual getIndividual() {
         return individual;
     }
@@ -61,22 +59,11 @@ public class Employee extends ResponseId implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-
     public Company getCompany() {
         return company;
     }
     public void setCompany(Company company) {
         this.company = company;
-    }
-
-    @OneToOne
-    @JsonIgnore
-
-    public User getUser() {
-        return user;
-    }
-    public void setUser(User user) {
-        this.user = user;
     }
 
     @OneToMany(mappedBy = "employer")

@@ -15,15 +15,24 @@ import javax.persistence.*;
 public class Individual extends ContactInfo {
 
     private Employee employee;
+    private User user;
 
     @OneToOne
     @JsonIgnore
-
     public Employee getEmployee() {
         return employee;
     }
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    @OneToOne
+    @JsonIgnore
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }

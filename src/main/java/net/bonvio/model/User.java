@@ -1,6 +1,5 @@
 package net.bonvio.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.bonvio.settings.ResponseId;
 
 import javax.persistence.*;
@@ -14,9 +13,7 @@ import java.io.Serializable;
 public class User extends ResponseId implements Serializable {
 
     private Integer id;
-    private String login;
-    private String password;
-    private Employee employee;
+    private Individual individual;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,37 +24,21 @@ public class User extends ResponseId implements Serializable {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
-    }
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    @JsonIgnore
-    public String getPassword() {
-        return password;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     @OneToOne
     //@JsonIgnore
 
-    public Employee getEmployee() {
-        return employee;
+    public Individual getIndividual() {
+        return individual;
     }
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setIndividual(Individual individual) {
+        this.individual = individual;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", login='" + login + '\'' +
-                ", employee=" + employee +
+                ", individual=" + individual +
                 '}';
     }
 }
