@@ -39,7 +39,7 @@ public class Customer extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "customer")
     @JsonIgnore
-    @Transient
+
     public List<Answer> getAnswers() {
         return answers;
     }

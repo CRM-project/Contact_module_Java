@@ -82,7 +82,7 @@ public class ContactInfo extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "contactInfo")
     @JsonIgnore
-    @Transient
+
     public List<Phone> getPhoneList() {
         return phoneList;
     }
@@ -92,7 +92,7 @@ public class ContactInfo extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "contactInfo")
     @JsonIgnore
-    @Transient
+
     public List<Website> getWebsiteList() {
         return websiteList;
     }
@@ -102,7 +102,7 @@ public class ContactInfo extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "contactInfo")
     @JsonIgnore
-    @Transient
+
     public List<Email> getEmailList() {
         return emailList;
     }
@@ -112,7 +112,7 @@ public class ContactInfo extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "contactInfo")
     @JsonIgnore
-    @Transient
+
     public List<Social> getSocialList() {
         return socialList;
     }
@@ -122,7 +122,7 @@ public class ContactInfo extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "contactInfo")
     @JsonIgnore
-    @Transient
+
     public List<Tag> getTagList() {
         return tagList;
     }
@@ -132,7 +132,7 @@ public class ContactInfo extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "contactFrom")
     @JsonIgnore
-    @Transient
+
     public List<Contact> getContactFrom() {
         return contactFrom;
     }
@@ -142,7 +142,7 @@ public class ContactInfo extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "contactTo")
     @JsonIgnore
-    @Transient
+
     public List<Contact> getContactTo() {
         return contactTo;
     }

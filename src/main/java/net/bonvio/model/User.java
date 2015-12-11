@@ -44,7 +44,7 @@ public class User extends ResponseId implements Serializable {
 
     @OneToOne
     //@JsonIgnore
-    @Transient
+
     public Employee getEmployee() {
         return employee;
     }

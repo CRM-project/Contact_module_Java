@@ -54,7 +54,7 @@ public class Answer extends ResponseId implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    @Transient
+
     public Customer getCustomer() {
         return customer;
     }

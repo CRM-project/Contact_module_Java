@@ -18,7 +18,7 @@ public class Individual extends ContactInfo {
 
     @OneToOne
     @JsonIgnore
-    @Transient
+
     public Employee getEmployee() {
         return employee;
     }

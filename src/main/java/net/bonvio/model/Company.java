@@ -20,7 +20,7 @@ public class Company extends ContactInfo {
 
     @OneToMany (mappedBy = "company")
     @JsonIgnore
-    @Transient
+
     public List<Employee> getEmployeeList() {
         return employeeList;
     }

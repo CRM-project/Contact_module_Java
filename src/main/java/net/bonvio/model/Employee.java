@@ -50,7 +50,7 @@ public class Employee extends ResponseId implements Serializable {
 
     @OneToOne
     @JsonIgnore
-    @Transient
+
     public Individual getIndividual() {
         return individual;
     }
@@ -60,7 +60,7 @@ public class Employee extends ResponseId implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    @Transient
+
     public Company getCompany() {
         return company;
     }
@@ -70,7 +70,7 @@ public class Employee extends ResponseId implements Serializable {
 
     @OneToOne
     @JsonIgnore
-    @Transient
+
     public User getUser() {
         return user;
     }
@@ -80,7 +80,6 @@ public class Employee extends ResponseId implements Serializable {
 
     @OneToMany(mappedBy = "employer")
     @JsonIgnore
-    @Transient
     public List<Task> getTaskList() {
         return taskList;
     }
@@ -90,7 +89,6 @@ public class Employee extends ResponseId implements Serializable {
 
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
-    @Transient
     public List<Task> getTodoList() {
         return todoList;
     }
