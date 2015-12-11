@@ -1,6 +1,6 @@
 package net.bonvio.dao.interfaces;
 
-import net.bonvio.dao.generic.GenericDAO;
+import net.bonvio.dao.generic.interfaces.GenericDAO;
 import net.bonvio.model.Company;
 import net.bonvio.model.Phone;
 import net.bonvio.model.Email;

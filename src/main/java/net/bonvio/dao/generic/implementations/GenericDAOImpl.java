@@ -1,6 +1,6 @@
-package net.bonvio.dao.generic;
+package net.bonvio.dao.generic.implementations;
 
-import net.bonvio.dao.generic.GenericDAO;
+import net.bonvio.dao.generic.interfaces.GenericDAO;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

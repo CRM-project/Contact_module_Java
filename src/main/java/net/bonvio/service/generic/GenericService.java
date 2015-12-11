@@ -16,5 +16,4 @@ public interface GenericService<T> {
     void update(T entity);
     void delete(T entity);
     void deleteById(Integer id);
-    //T getReference(Integer id);
 }

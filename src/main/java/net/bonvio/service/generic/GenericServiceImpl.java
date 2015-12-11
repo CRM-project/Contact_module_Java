@@ -1,6 +1,6 @@
 package net.bonvio.service.generic;
 
-import net.bonvio.dao.generic.GenericDAO;
+import net.bonvio.dao.generic.interfaces.GenericDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,14 +18,6 @@ public abstract class GenericServiceImpl<T extends Serializable> implements Gene
 
     @Autowired
     public GenericDAO<T> tGenericDAO;
-
-    public GenericDAO<T> gettGenericDAO() {
-        return tGenericDAO;
-    }
-
-    public void settGenericDAO(GenericDAO<T> tGenericDAO) {
-        this.tGenericDAO = tGenericDAO;
-    }
 
     @Transactional
     @Override

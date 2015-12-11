@@ -1,6 +1,6 @@
 package net.bonvio.dao.implementations;
 
-import net.bonvio.dao.generic.GenericDAOImpl;
+import net.bonvio.dao.generic.implementations.GenericDAOImplListById;
 import net.bonvio.model.Phone;
 import org.springframework.stereotype.Repository;
 
@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public class PhoneDaoImpl extends GenericDAOImpl<Phone> {
+public class PhoneDaoImpl extends GenericDAOImplListById<Phone> {
 }

@@ -1,4 +1,4 @@
-package net.bonvio.dao.generic;
+package net.bonvio.dao.generic.interfaces;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package net.bonvio.dao.implementations;
 
-import net.bonvio.dao.generic.GenericDAOImpl;
+import net.bonvio.dao.generic.implementations.GenericDAOImpl;
 import net.bonvio.dao.interfaces.CompanyDao;
 import net.bonvio.model.*;
 import org.springframework.stereotype.Repository;

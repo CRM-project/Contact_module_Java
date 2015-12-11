@@ -26,7 +26,6 @@ public class IndividualController extends GenericController<Individual> {
         individual.setType("individual");
         individualService.save(individual);
         return new ResponseId(individual.getId());
-        //return t;
     }
 
     @RequestMapping(value = "", method = RequestMethod.PUT)
@@ -34,6 +33,12 @@ public class IndividualController extends GenericController<Individual> {
     public void update(@RequestBody Individual individual) {
         individual.setType("individual");
         individualService.update(individual);
+    }
+
+    @RequestMapping(value = "banana/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public Object banana(@PathVariable int id) {
+        return individualService.getPhoneListById(id);
     }
 
 }
