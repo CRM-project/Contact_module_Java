@@ -6,11 +6,9 @@
     <persistence-unit name="mysql" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>net.bonvio.model.Answer</class>
         <class>net.bonvio.model.Company</class>
         <class>net.bonvio.model.Contact</class>
         <class>net.bonvio.model.ContactInfo</class>
-        <class>net.bonvio.model.Customer</class>
         <class>net.bonvio.model.Email</class>
         <class>net.bonvio.model.Employee</class>
         <class>net.bonvio.model.Individual</class>
