@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public class ContactDaoImpl extends GenericDAOImpl<ContactInfo> {
+public class ContactInfoDaoImpl extends GenericDAOImpl<ContactInfo> {
 }

@@ -6,7 +6,7 @@ import net.bonvio.service.generic.GenericService;
 /**
  * Created by mil on 23.11.2015.
  */
-public interface ContactService extends GenericService<ContactInfo> {
+public interface ContactInfoService extends GenericService<ContactInfo> {
 
 }
 
