@@ -41,22 +41,6 @@ public class CompanyController extends GenericController<Company> {
     }
 
     @RequestMapping(
-            value = "email/{id}",
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public ResponseEntity<List<Email>> listAllEmails(@PathVariable Integer id) {
-        List<Email> emailList = null;
-        try {
-            emailList = companyService.getEmailListByCompanyId(id);
-            if (emailList.isEmpty()) emailList = new ArrayList<>();
-        } catch (Exception e) {
-            return new ResponseEntity<>(emailList, HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(emailList, HttpStatus.OK);
-    }
-
-    @RequestMapping(
             value = "phone/{id}",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -70,6 +54,22 @@ public class CompanyController extends GenericController<Company> {
             return new ResponseEntity<>(phoneList, HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(phoneList, HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            value = "email/{id}",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseEntity<List<Email>> listAllEmails(@PathVariable Integer id) {
+        List<Email> emailList = null;
+        try {
+            emailList = companyService.getEmailListByCompanyId(id);
+            if (emailList.isEmpty()) emailList = new ArrayList<>();
+        } catch (Exception e) {
+            return new ResponseEntity<>(emailList, HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(emailList, HttpStatus.OK);
     }
 
     @RequestMapping(

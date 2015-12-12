@@ -9,7 +9,9 @@ import java.util.List;
 
 /**
  * Created by mil on 26.11.15.
+ * banana
  */
+
 @Repository
 public class CompanyDaoImpl extends GenericDAOImpl<Company> implements CompanyDao {
 
