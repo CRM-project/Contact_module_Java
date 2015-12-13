@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by mil on 26.11.15.
+ * banana
  */
 
 @Controller
@@ -25,6 +26,11 @@ public class CompanyController extends GenericController<Company> {
     @Autowired
     CompanyService companyService;
 
+    /**
+     * Данные методы переопределены с целью указания занчений для спец полей данной Entity
+     * @param company
+     * @return null
+     */
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
     public Object save(@RequestBody Company company) {
@@ -40,6 +46,9 @@ public class CompanyController extends GenericController<Company> {
         companyService.update(company);
     }
 
+    /**
+     * Данные методы сделаны с целью получения корректных запросов, если получится их переделать на генерик, то хорошо!
+     */
     @RequestMapping(
             value = "phone/{id}",
             method = RequestMethod.GET,

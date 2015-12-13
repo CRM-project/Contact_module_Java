@@ -25,6 +25,11 @@ public class IndividualController extends GenericController<Individual> {
     @Autowired
     IndividualService individualService;
 
+    /**
+     * Данные методы переопределены с целью указания занчений для спец полей данной Entity
+     * @param individual
+     * @return null
+     */
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
     public Object save(@RequestBody Individual individual) {
@@ -40,12 +45,18 @@ public class IndividualController extends GenericController<Individual> {
         individualService.update(individual);
     }
 
-    /*@RequestMapping(value = "banana/{id}", method = RequestMethod.GET)
+    /**
+     * Эта фигня работает, то некорректно. Так как делает запрос на общую таблицу contactInfo и получает все ее Айдюки
+     */
+    @RequestMapping(value = "banana/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Object banana(@PathVariable int id) {
         return individualService.getPhoneListById(id);
-    }*/
+    }
 
+    /**
+     * Данные методы сделаны с целью получения корректных запросов, если получится их переделать на генерик, то хорошо!
+     */
     @RequestMapping(
             value = "phone/{id}",
             method = RequestMethod.GET,

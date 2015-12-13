@@ -1,5 +1,6 @@
 package net.bonvio.service.implementations;
 
+import net.bonvio.dao.implementations.EmailDaoImpl;
 import net.bonvio.dao.implementations.PhoneDaoImpl;
 import net.bonvio.dao.interfaces.IndividualDao;
 import net.bonvio.model.*;
@@ -13,20 +14,28 @@ import java.util.List;
 
 /**
  * Created by mil on 26.11.15.
+ * banana
  */
 
 @Service
 @Transactional
 public class IndividualServiceImpl extends GenericServiceImpl<Individual> implements IndividualService {
 
-/*    @Autowired
+    /**
+     * Эта фигня работает, то некорректно. Так как делает запрос на общую таблицу contactInfo и получает все ее Айдюки
+     */
+    @Autowired
     PhoneDaoImpl phoneDao;
 
     @Override
     public List<Phone> getPhoneListById(Integer id) {
         return phoneDao.listById(id, "contactInfo");
-    }*/
+    }
 
+
+    /**
+     * Данные методы сделаны с целью получения корректных запросов, если получится их переделать на генерик, то хорошо!
+     */
     @Autowired
     IndividualDao individualDao;
 

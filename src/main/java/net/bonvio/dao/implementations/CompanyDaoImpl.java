@@ -23,7 +23,6 @@ public class CompanyDaoImpl extends GenericDAOImpl<Company> implements CompanyDa
 
     @Override
     public List<Email> getEmailListByCompanyId(Integer id) {
-        //Company company = (Company)entityManager.createQuery("select c from Company c WHERE c.id = :id").setParameter("id", id).getSingleResult();
         Company company = (Company)entityManager.createQuery("select c from Company c join fetch c.emailList where c.id = :id").setParameter("id", id).getSingleResult();
         return company.getEmailList();
     }

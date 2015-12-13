@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 @Repository
-public class IndividualDaoImpl extends GenericDAOImpl<Individual> implements IndividualDao{
+public class IndividualDaoImpl extends GenericDAOImplListById<Individual> implements IndividualDao{
 
     @Override
     public List<Phone> getPhoneListByIndividualId(Integer id) {

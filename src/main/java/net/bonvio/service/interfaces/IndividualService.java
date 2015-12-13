@@ -7,9 +7,11 @@ import java.util.List;
 
 /**
  * Created by mil on 23.11.2015.
+ * banana
  */
+
 public interface IndividualService extends GenericService<Individual> {
-    //List<Phone> getPhoneListById(Integer id);
+    List<Phone> getPhoneListById(Integer id);
 
     List<Phone> getPhoneListByPhoneId(Integer id);
     List<Email> getEmailListByPhoneId(Integer id);
