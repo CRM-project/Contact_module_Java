@@ -16,13 +16,22 @@ import java.io.Serializable;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Contact extends ResponseId implements Serializable {
 
-    private Integer id;
-    private ContactInfo contactFrom;
-    private ContactInfo contactTo;
-
-    @Override
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
+    @ManyToOne
+    private ContactInfo contactFrom;
+    @ManyToOne
+    private ContactInfo contactTo;
+
+    public Contact(){}
+
+    public Contact(ContactInfo contactFrom, ContactInfo contactTo) {
+        this.contactFrom = contactFrom;
+        this.contactTo = contactTo;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -30,21 +39,11 @@ public class Contact extends ResponseId implements Serializable {
         this.id = id;
     }
 
-    @ManyToOne
-    @JsonIgnore
     public ContactInfo getContactFrom() {
         return contactFrom;
     }
-    public void setContactFrom(ContactInfo contactFrom) {
-        this.contactFrom = contactFrom;
-    }
 
-    @ManyToOne
-    @JsonIgnore
     public ContactInfo getContactTo() {
         return contactTo;
-    }
-    public void setContactTo(ContactInfo contactTo) {
-        this.contactTo = contactTo;
     }
 }
