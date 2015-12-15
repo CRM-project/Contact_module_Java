@@ -33,7 +33,7 @@ public class IndividualController extends GenericController<Individual> {
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
     public Object save(@RequestBody Individual individual) {
-        //individual.setType("individual");
+        individual.setType("individual");
         individualService.save(individual);
         return new ResponseId(individual.getId());
     }
@@ -41,7 +41,7 @@ public class IndividualController extends GenericController<Individual> {
     @RequestMapping(value = "", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@RequestBody Individual individual) {
-        //individual.setType("individual");
+        individual.setType("individual");
         individualService.update(individual);
     }
 

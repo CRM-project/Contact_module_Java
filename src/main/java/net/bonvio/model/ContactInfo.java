@@ -26,6 +26,7 @@ public class ContactInfo extends ResponseId implements Serializable {
     private String type;
     private String address;
     private String description;
+    private String visible;
     @OneToMany (mappedBy = "contactInfo")
     @JsonIgnore
     private List<Phone> phoneList = new ArrayList<>();
@@ -55,13 +56,14 @@ public class ContactInfo extends ResponseId implements Serializable {
         super(id);
     }
 
-    public ContactInfo(Integer id, String shortName, String fullName, String type, String address, String description, List<Phone> phoneList, List<Website> websiteList, List<Email> emailList, List<Social> socialList, List<Tag> tagList, List<Contact> contactFrom, List<Contact> contactTo) {
+    public ContactInfo(Integer id, String shortName, String fullName, String type, String address, String description, String visible, List<Phone> phoneList, List<Website> websiteList, List<Email> emailList, List<Social> socialList, List<Tag> tagList, List<Contact> contactFrom, List<Contact> contactTo) {
         this.id = id;
         this.shortName = shortName;
         this.fullName = fullName;
         this.type = type;
         this.address = address;
         this.description = description;
+        this.visible = visible;
         this.phoneList = phoneList;
         this.websiteList = websiteList;
         this.emailList = emailList;
@@ -89,6 +91,7 @@ public class ContactInfo extends ResponseId implements Serializable {
     public String getDescription() {
         return description;
     }
+    public String getVisible() {return visible; }
     public List<Phone> getPhoneList() {
         return phoneList;
     }
@@ -109,5 +112,9 @@ public class ContactInfo extends ResponseId implements Serializable {
     }
     public List<Contact> getContactTo() {
         return contactTo;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

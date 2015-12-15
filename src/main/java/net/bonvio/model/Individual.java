@@ -27,8 +27,8 @@ public class Individual extends ContactInfo {
 
 
 
-    public Individual(Integer id, String shortName, String fullName, String type, String address, String description, List<Phone> phoneList, List<Website> websiteList, List<Email> emailList, List<Social> socialList, List<Tag> tagList, List<Contact> contactFrom, List<Contact> contactTo) {
-        super(id, shortName, fullName, type, address, description, phoneList, websiteList, emailList, socialList, tagList, contactFrom, contactTo);
+    public Individual(Integer id, String shortName, String fullName, String type, String address, String description, String visible, List<Phone> phoneList, List<Website> websiteList, List<Email> emailList, List<Social> socialList, List<Tag> tagList, List<Contact> contactFrom, List<Contact> contactTo) {
+        super(id, shortName, fullName, type, address, description, visible, phoneList, websiteList, emailList, socialList, tagList, contactFrom, contactTo);
     }
 
     public Employee getEmployee() {

@@ -34,7 +34,7 @@ public class CompanyController extends GenericController<Company> {
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
     public Object save(@RequestBody Company company) {
-        //company.setType("company");
+        company.setType("company");
         companyService.save(company);
         return new ResponseId(company.getId());
     }
@@ -42,7 +42,7 @@ public class CompanyController extends GenericController<Company> {
     @RequestMapping(value = "", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@RequestBody Company company) {
-        //company.setType("company");
+        company.setType("company");
         companyService.update(company);
     }
 
