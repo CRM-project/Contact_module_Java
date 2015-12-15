@@ -13,7 +13,7 @@ import java.util.List;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
-@PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
+//@PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
 public class Company extends ContactInfo {
     @OneToMany (mappedBy = "company")
     @JsonIgnore
@@ -29,5 +29,4 @@ public class Company extends ContactInfo {
     public List<Employee> getEmployeeList() {
         return employeeList;
     }
-
 }

@@ -27,6 +27,6 @@ public class ContactServiceImpl extends GenericServiceImpl<Contact> implements C
         if (!fromId.equals(toId))
             contactDAO.save(new Contact(contactInfoDAO.getReference(fromId), contactInfoDAO.getReference(toId)));
         else
-            throw new Exception("Произошла какая-то хуита");
+            throw new Exception("Произошла какая-то ошибка");
     }
 }

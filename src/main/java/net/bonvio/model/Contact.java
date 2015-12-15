@@ -13,11 +13,9 @@ import java.io.Serializable;
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Contact implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
     @ManyToOne
     private ContactInfo contactFrom;
     @ManyToOne
@@ -39,13 +37,10 @@ public class Contact implements Serializable {
     public Integer getId() {
         return id;
     }
-
     public ContactInfo getContactFrom() {
         return contactFrom;
     }
-
     public ContactInfo getContactTo() {
         return contactTo;
     }
-
 }

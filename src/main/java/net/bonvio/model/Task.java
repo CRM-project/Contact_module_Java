@@ -1,7 +1,5 @@
 package net.bonvio.model;
 
-import net.bonvio.settings.ResponseId;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -12,32 +10,29 @@ import java.io.Serializable;
 
 @Entity
 public class Task implements Serializable {
-    private Integer id;
-    private Employee employer;
-    private Employee employee;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    @ManyToOne (fetch = FetchType.EAGER)
+    private Employee employer;
+    @ManyToOne (fetch = FetchType.EAGER)
+    private Employee employee;
+
+    public Task() {
+    }
+
+    public Task(Employee employer, Employee employee) {
+        this.employer = employer;
+        this.employee = employee;
+    }
+
     public Integer getId() {
         return id;
     }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @ManyToOne (fetch = FetchType.EAGER)
     public Employee getEmployer() {
         return employer;
     }
-    public void setEmployer(Employee employer) {
-        this.employer = employer;
-    }
-
-    @ManyToOne (fetch = FetchType.EAGER)
     public Employee getEmployee() {
         return employee;
-    }
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
     }
 }

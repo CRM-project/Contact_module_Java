@@ -35,29 +35,13 @@ public class Phone extends ResponseId implements Serializable {
     public Integer getId() {
         return id;
     }
-    /*public void setId(Integer id) {
-        this.id = id;
-    }*/
-
     public String getPhone() {
         return phone;
     }
-    /*public void setPhone(String phone) {
-        this.phone = phone;
-    }*/
-
     public String getType() {
         return type;
     }
-    /*public void setType(String type) {
-        this.type = type;
-    }*/
-
     public ContactInfo getContactInfo() {
         return contactInfo;
     }
-    /*public void setContactInfo(ContactInfo contactInfo) {
-        this.contactInfo = contactInfo;
-    }*/
-
 }

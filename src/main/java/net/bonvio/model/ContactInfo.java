@@ -18,7 +18,6 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Inheritance(strategy= InheritanceType.JOINED)
 public class ContactInfo extends ResponseId implements Serializable {
-    //@Override
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -75,53 +74,40 @@ public class ContactInfo extends ResponseId implements Serializable {
     public Integer getId() {
         return id;
     }
-
     public String getShortName() {
         return shortName;
     }
-
     public String getFullName() {
         return fullName;
     }
-
     public String getType() {
         return type;
     }
-
     public String getAddress() {
         return address;
     }
-
     public String getDescription() {
         return description;
     }
-
     public List<Phone> getPhoneList() {
         return phoneList;
     }
-
     public List<Website> getWebsiteList() {
         return websiteList;
     }
-
     public List<Email> getEmailList() {
         return emailList;
     }
-
     public List<Social> getSocialList() {
         return socialList;
     }
-
     public List<Tag> getTagList() {
         return tagList;
     }
-
     public List<Contact> getContactFrom() {
         return contactFrom;
     }
-
     public List<Contact> getContactTo() {
         return contactTo;
     }
-
 }

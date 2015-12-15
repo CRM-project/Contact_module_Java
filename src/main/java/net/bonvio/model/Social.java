@@ -1,8 +1,6 @@
 package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import net.bonvio.settings.ResponseId;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -13,42 +11,34 @@ import java.io.Serializable;
 
 @Entity
 public class Social implements Serializable {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String socialUrl;
     private String type;
-    private ContactInfo contactInfo;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getSocialUrl() {
-        return socialUrl;
-    }
-    public void setSocialUrl(String socialUrl) {
-        this.socialUrl = socialUrl;
-    }
-
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
-    }
-
     @ManyToOne
     @JsonIgnore
-    public ContactInfo getContactInfo() {
-        return contactInfo;
+    private ContactInfo contactInfo;
+
+    public Social() {
     }
-    public void setContactInfo(ContactInfo contactInfo) {
+
+    public Social(String socialUrl, String type, ContactInfo contactInfo) {
+        this.socialUrl = socialUrl;
+        this.type = type;
         this.contactInfo = contactInfo;
     }
 
+    public Integer getId() {
+        return id;
+    }
+    public String getSocialUrl() {
+        return socialUrl;
+    }
+    public String getType() {
+        return type;
+    }
+    public ContactInfo getContactInfo() {
+        return contactInfo;
+    }
 }

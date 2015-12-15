@@ -1,8 +1,6 @@
 package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import net.bonvio.settings.ResponseId;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,72 +13,55 @@ import java.util.List;
 
 @Entity
 public class Employee implements Serializable {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String department;
     private String position;
-    private Individual individual;
-    private Company company;
-    private List<Task> taskList = new ArrayList<>();
-    private List<Task> todoList = new ArrayList<>();
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
     @OneToOne
     @JsonIgnore
-    public Individual getIndividual() {
-        return individual;
-    }
-    public void setIndividual(Individual individual) {
-        this.individual = individual;
-    }
-
+    private Individual individual;
     @ManyToOne
     @JsonIgnore
-    public Company getCompany() {
-        return company;
-    }
-    public void setCompany(Company company) {
-        this.company = company;
-    }
-
+    private Company company;
     @OneToMany(mappedBy = "employer")
     @JsonIgnore
-    public List<Task> getTaskList() {
-        return taskList;
-    }
-    public void setTaskList(List<Task> taskList) {
-        this.taskList = taskList;
-    }
-
+    private List<Task> taskList = new ArrayList<>();
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
-    public List<Task> getTodoList() {
-        return todoList;
+    private List<Task> todoList = new ArrayList<>();
+
+    public Employee() {
     }
-    public void setTodoList(List<Task> todoList) {
+
+    public Employee(String department, String position, Individual individual, Company company, List<Task> taskList, List<Task> todoList) {
+        this.department = department;
+        this.position = position;
+        this.individual = individual;
+        this.company = company;
+        this.taskList = taskList;
         this.todoList = todoList;
     }
 
+    public Integer getId() {
+        return id;
+    }
+    public String getDepartment() {
+        return department;
+    }
+    public String getPosition() {
+        return position;
+    }
+    public Individual getIndividual() {
+        return individual;
+    }
+    public Company getCompany() {
+        return company;
+    }
+    public List<Task> getTaskList() {
+        return taskList;
+    }
+    public List<Task> getTodoList() {
+        return todoList;
+    }
 }

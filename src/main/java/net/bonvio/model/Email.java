@@ -1,8 +1,6 @@
 package net.bonvio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import net.bonvio.settings.ResponseId;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -13,41 +11,34 @@ import java.io.Serializable;
 
 @Entity
 public class Email implements Serializable {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String email;
     private String type;
+    @ManyToOne
+    @JsonIgnore
     private ContactInfo contactInfo;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Email() {
+    }
+
+    public Email(String email, String type, ContactInfo contactInfo) {
+        this.email = email;
+        this.type = type;
+        this.contactInfo = contactInfo;
+    }
+
     public Integer getId() {
         return id;
     }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getEmail() {
         return email;
     }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getType() {
         return type;
     }
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    @ManyToOne
-    @JsonIgnore
     public ContactInfo getContactInfo() {
         return contactInfo;
-    }
-    public void setContactInfo(ContactInfo contactInfo) {
-        this.contactInfo = contactInfo;
     }
 }

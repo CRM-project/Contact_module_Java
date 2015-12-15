@@ -13,42 +13,34 @@ import java.io.Serializable;
 
 @Entity
 public class Tag implements Serializable {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String title;
     private String type;
-    private ContactInfo contactInfo;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
-    }
-
     @ManyToOne
     @JsonIgnore
-    public ContactInfo getContactInfo() {
-        return contactInfo;
+    private ContactInfo contactInfo;
+
+    public Tag() {
     }
-    public void setContactInfo(ContactInfo contactInfo) {
+
+    public Tag(String title, String type, ContactInfo contactInfo) {
+        this.title = title;
+        this.type = type;
         this.contactInfo = contactInfo;
     }
 
+    public Integer getId() {
+        return id;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public String getType() {
+        return type;
+    }
+    public ContactInfo getContactInfo() {
+        return contactInfo;
+    }
 }

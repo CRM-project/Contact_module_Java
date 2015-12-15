@@ -13,41 +13,34 @@ import java.io.Serializable;
 
 @Entity
 public class Website implements Serializable {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String websiteUrl;
     private String type;
+    @ManyToOne
+    @JsonIgnore
     private ContactInfo contactInfo;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Website() {
+    }
+
+    public Website(String websiteUrl, String type, ContactInfo contactInfo) {
+        this.websiteUrl = websiteUrl;
+        this.type = type;
+        this.contactInfo = contactInfo;
+    }
+
     public Integer getId() {
         return id;
     }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getWebsiteUrl() {
         return websiteUrl;
     }
-    public void setWebsiteUrl(String websiteUrl) {
-        this.websiteUrl = websiteUrl;
-    }
-
     public String getType() {
         return type;
     }
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    @ManyToOne
-    @JsonIgnore
     public ContactInfo getContactInfo() {
         return contactInfo;
-    }
-    public void setContactInfo(ContactInfo contactInfo) {
-        this.contactInfo = contactInfo;
     }
 }

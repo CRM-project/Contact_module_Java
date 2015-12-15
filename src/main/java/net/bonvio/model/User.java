@@ -1,45 +1,33 @@
 package net.bonvio.model;
 
-import net.bonvio.settings.ResponseId;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Created by mil on 23.11.2015.
+ * banana
  */
 
 @Entity
 public class User implements Serializable {
-
-    private Integer id;
-    private Individual individual;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer getId() {
-        return this.id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
+    private Integer id;
     @OneToOne
-    //@JsonIgnore
+    private Individual individual;
 
-    public Individual getIndividual() {
-        return individual;
+    public User() {
     }
-    public void setIndividual(Individual individual) {
+
+    public User(Individual individual) {
         this.individual = individual;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", individual=" + individual +
-                '}';
+    public Integer getId() {
+        return this.id;
+    }
+    public Individual getIndividual() {
+        return individual;
     }
 }
 
