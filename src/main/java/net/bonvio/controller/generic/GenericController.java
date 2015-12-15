@@ -1,7 +1,6 @@
 package net.bonvio.controller.generic;
 
 import net.bonvio.service.generic.GenericService;
-import net.bonvio.settings.Resp;
 import net.bonvio.settings.ResponseId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
