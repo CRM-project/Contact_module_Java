@@ -17,128 +17,111 @@ import java.util.List;
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Inheritance(strategy= InheritanceType.JOINED)
-public class ContactInfo implements Serializable {
-
+public class ContactInfo extends ResponseId implements Serializable {
+    //@Override
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String shortName;
     private String fullName;
     private String type;
     private String address;
     private String description;
-
+    @OneToMany (mappedBy = "contactInfo")
+    @JsonIgnore
     private List<Phone> phoneList = new ArrayList<>();
+    @OneToMany (mappedBy = "contactInfo")
+    @JsonIgnore
     private List<Website> websiteList = new ArrayList<>();
+    @OneToMany (mappedBy = "contactInfo")
+    @JsonIgnore
     private List<Email> emailList = new ArrayList<>();
+    @OneToMany (mappedBy = "contactInfo")
+    @JsonIgnore
     private List<Social> socialList = new ArrayList<>();
+    @OneToMany (mappedBy = "contactInfo")
+    @JsonIgnore
     private List<Tag> tagList = new ArrayList<>();
+    @OneToMany (mappedBy = "contactFrom")
+    @JsonIgnore
+    private List<Contact> contactFrom = new ArrayList<>();
+    @OneToMany (mappedBy = "contactTo")
+    @JsonIgnore
+    private List<Contact> contactTo = new ArrayList<>();
 
-    private List<Contact> contactFromList = new ArrayList<>();
-    private List<Contact> contactToList = new ArrayList<>();
+    public ContactInfo() {
+    }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    public ContactInfo(Integer id) {
+        super(id);
+    }
+
+    public ContactInfo(Integer id, String shortName, String fullName, String type, String address, String description, List<Phone> phoneList, List<Website> websiteList, List<Email> emailList, List<Social> socialList, List<Tag> tagList, List<Contact> contactFrom, List<Contact> contactTo) {
+        this.id = id;
+        this.shortName = shortName;
+        this.fullName = fullName;
+        this.type = type;
+        this.address = address;
+        this.description = description;
+        this.phoneList = phoneList;
+        this.websiteList = websiteList;
+        this.emailList = emailList;
+        this.socialList = socialList;
+        this.tagList = tagList;
+        this.contactFrom = contactFrom;
+        this.contactTo = contactTo;
+    }
+
     public Integer getId() {
         return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getShortName() {
         return shortName;
     }
-    public void setShortName(String shortName) {
-        this.shortName = shortName;
-    }
 
     public String getFullName() {
         return fullName;
-    }
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
     }
 
     public String getType() {
         return type;
     }
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public String getAddress() {
         return address;
-    }
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getDescription() {
         return description;
     }
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
-    @OneToMany (mappedBy = "contactInfo")
-    @JsonIgnore
     public List<Phone> getPhoneList() {
         return phoneList;
     }
-    public void setPhoneList(List<Phone> phoneList) {
-        this.phoneList = phoneList;
-    }
 
-    @OneToMany (mappedBy = "contactInfo")
-    @JsonIgnore
     public List<Website> getWebsiteList() {
         return websiteList;
     }
-    public void setWebsiteList(List<Website> websiteList) {
-        this.websiteList = websiteList;
-    }
 
-    @OneToMany (mappedBy = "contactInfo")
-    @JsonIgnore
     public List<Email> getEmailList() {
         return emailList;
     }
-    public void setEmailList(List<Email> emailList) {
-        this.emailList = emailList;
-    }
 
-    @OneToMany (mappedBy = "contactInfo")
-    @JsonIgnore
     public List<Social> getSocialList() {
         return socialList;
     }
-    public void setSocialList(List<Social> socialList) {
-        this.socialList = socialList;
-    }
 
-    @OneToMany (mappedBy = "contactInfo")
-    @JsonIgnore
     public List<Tag> getTagList() {
         return tagList;
     }
-    public void setTagList(List<Tag> tagList) {
-        this.tagList = tagList;
+
+    public List<Contact> getContactFrom() {
+        return contactFrom;
     }
 
-    @OneToMany (mappedBy = "contactFrom")
-    @JsonIgnore
-    public List<Contact> getContactFromList() {
-        return contactFromList;
-    }
-    public void setContactFromList(List<Contact> contactFromList) {
-        this.contactFromList = contactFromList;
+    public List<Contact> getContactTo() {
+        return contactTo;
     }
 
-    @OneToMany (mappedBy = "contactTo")
-    @JsonIgnore
-    public List<Contact> getContactToList() {
-        return contactToList;
-    }
-    public void setContactToList(List<Contact> contactToList) {
-        this.contactToList = contactToList;
-    }
 }

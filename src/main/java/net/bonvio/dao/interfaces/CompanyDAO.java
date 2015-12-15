@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by mil on 30.11.15.
+ * banana
  */
 public interface CompanyDAO extends GenericDAO<Company> {
     List<Phone> getPhoneListByCompanyId(Integer id);

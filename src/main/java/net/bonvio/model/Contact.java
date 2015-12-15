@@ -30,11 +30,14 @@ public class Contact implements Serializable {
         this.contactTo = contactTo;
     }
 
+    public Contact(Integer id, ContactInfo contactFrom, ContactInfo contactTo) {
+        this.id = id;
+        this.contactFrom = contactFrom;
+        this.contactTo = contactTo;
+    }
+
     public Integer getId() {
         return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public ContactInfo getContactFrom() {
@@ -45,11 +48,4 @@ public class Contact implements Serializable {
         return contactTo;
     }
 
-    public void setContactFrom(ContactInfo contactFrom) {
-        this.contactFrom = contactFrom;
-    }
-
-    public void setContactTo(ContactInfo contactTo) {
-        this.contactTo = contactTo;
-    }
 }
