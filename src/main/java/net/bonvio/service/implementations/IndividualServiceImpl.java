@@ -1,8 +1,7 @@
 package net.bonvio.service.implementations;
 
-import net.bonvio.dao.implementations.EmailDaoImpl;
-import net.bonvio.dao.implementations.PhoneDaoImpl;
-import net.bonvio.dao.interfaces.IndividualDao;
+import net.bonvio.dao.implementations.PhoneDAOImpl;
+import net.bonvio.dao.interfaces.IndividualDAO;
 import net.bonvio.model.*;
 import net.bonvio.service.generic.GenericServiceImpl;
 import net.bonvio.service.interfaces.IndividualService;
@@ -25,7 +24,7 @@ public class IndividualServiceImpl extends GenericServiceImpl<Individual> implem
      * Эта фигня работает, то некорректно. Так как делает запрос на общую таблицу contactInfo и получает все ее Айдюки
      */
     @Autowired
-    PhoneDaoImpl phoneDao;
+    PhoneDAOImpl phoneDao;
 
     @Override
     public List<Phone> getPhoneListById(Integer id) {
@@ -37,7 +36,7 @@ public class IndividualServiceImpl extends GenericServiceImpl<Individual> implem
      * Данные методы сделаны с целью получения корректных запросов, если получится их переделать на генерик, то хорошо!
      */
     @Autowired
-    IndividualDao individualDao;
+    IndividualDAO individualDao;
 
     @Override
     public List<Phone> getPhoneListByPhoneId(Integer id) {

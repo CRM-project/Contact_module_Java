@@ -1,7 +1,7 @@
 package net.bonvio.dao.implementations;
 
 import net.bonvio.dao.generic.implementations.GenericDAOImpl;
-import net.bonvio.dao.interfaces.CompanyDao;
+import net.bonvio.dao.interfaces.CompanyDAO;
 import net.bonvio.model.*;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 @Repository
-public class CompanyDaoImpl extends GenericDAOImpl<Company> implements CompanyDao {
+public class CompanyDAOImpl extends GenericDAOImpl<Company> implements CompanyDAO {
 
     @Override
     public List<Phone> getPhoneListByCompanyId(Integer id) {

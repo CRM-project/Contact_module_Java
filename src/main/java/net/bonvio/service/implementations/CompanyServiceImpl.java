@@ -1,6 +1,6 @@
 package net.bonvio.service.implementations;
 
-import net.bonvio.dao.interfaces.CompanyDao;
+import net.bonvio.dao.interfaces.CompanyDAO;
 import net.bonvio.model.*;
 import net.bonvio.service.generic.GenericServiceImpl;
 import net.bonvio.service.interfaces.CompanyService;
@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by mil on 26.11.15.
+ * banana
  */
 
 @Service
@@ -19,7 +20,7 @@ import java.util.List;
 public class CompanyServiceImpl extends GenericServiceImpl<Company> implements CompanyService {
 
     @Autowired
-    CompanyDao companyDao;
+    CompanyDAO companyDao;
 
     @Override
     public List<Phone> getPhoneListByCompanyId(Integer id) {

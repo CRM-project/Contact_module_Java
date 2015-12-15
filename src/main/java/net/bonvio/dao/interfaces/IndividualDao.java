@@ -8,7 +8,7 @@ import java.util.List;
  * Created by mil on 30.11.15.
  * banana
  */
-public interface IndividualDao extends GenericDAO<Individual> {
+public interface IndividualDAO extends GenericDAO<Individual> {
     List<Phone> getPhoneListByIndividualId(Integer id);
     List<Email> getEmailListByIndividualId(Integer id);
     List<Social> getSocialListByIndividualId(Integer id);

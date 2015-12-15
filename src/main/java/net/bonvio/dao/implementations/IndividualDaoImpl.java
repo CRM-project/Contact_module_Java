@@ -1,8 +1,7 @@
 package net.bonvio.dao.implementations;
 
-import net.bonvio.dao.generic.implementations.GenericDAOImpl;
 import net.bonvio.dao.generic.implementations.GenericDAOImplListById;
-import net.bonvio.dao.interfaces.IndividualDao;
+import net.bonvio.dao.interfaces.IndividualDAO;
 import net.bonvio.model.*;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +13,7 @@ import java.util.List;
  */
 
 @Repository
-public class IndividualDaoImpl extends GenericDAOImplListById<Individual> implements IndividualDao{
+public class IndividualDAOImpl extends GenericDAOImplListById<Individual> implements IndividualDAO {
 
     @Override
     public List<Phone> getPhoneListByIndividualId(Integer id) {
