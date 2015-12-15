@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 
 @Entity
-public class Email extends ResponseId implements Serializable {
+public class Email implements Serializable {
 
     private Integer id;
     private String email;

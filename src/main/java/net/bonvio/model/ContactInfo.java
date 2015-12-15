@@ -17,7 +17,7 @@ import java.util.List;
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Inheritance(strategy= InheritanceType.JOINED)
-public class ContactInfo extends ResponseId implements Serializable {
+public class ContactInfo implements Serializable {
 
     private Integer id;
     private String shortName;
@@ -35,7 +35,6 @@ public class ContactInfo extends ResponseId implements Serializable {
     private List<Contact> contactFromList = new ArrayList<>();
     private List<Contact> contactToList = new ArrayList<>();
 
-    @Override
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {

@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 @Entity
-public class Employee extends ResponseId implements Serializable {
+public class Employee implements Serializable {
 
     private Integer id;
     private String department;
@@ -24,7 +24,6 @@ public class Employee extends ResponseId implements Serializable {
     private List<Task> taskList = new ArrayList<>();
     private List<Task> todoList = new ArrayList<>();
 
-    @Override
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {

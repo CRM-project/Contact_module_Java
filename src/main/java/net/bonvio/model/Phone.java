@@ -12,14 +12,13 @@ import java.io.Serializable;
  */
 
 @Entity
-public class Phone extends ResponseId implements Serializable {
+public class Phone implements Serializable {
     
     private Integer id;
     private String phone;
     private String type;
     private ContactInfo contactInfo;
 
-    @Override
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {

@@ -1,6 +1,7 @@
 package net.bonvio.controller.generic;
 
 import net.bonvio.service.generic.GenericService;
+import net.bonvio.settings.Resp;
 import net.bonvio.settings.ResponseId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +19,18 @@ import java.util.List;
  * Created by mil on 04.12.15.
  */
 
-public class GenericController<T extends ResponseId> {
+public class GenericController<T> {
 
     @Autowired
     private GenericService<T> tGenericService;
+
+
+    private Class<T> tClass;
+
+    @SuppressWarnings("unchecked")
+    public GenericController() {
+        tClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+    }
 
 
     @RequestMapping(
@@ -57,10 +69,15 @@ public class GenericController<T extends ResponseId> {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
-    public Object save(@RequestBody T t) {
+    public Object save(@RequestBody T t) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         tGenericService.save(t);
-        return new ResponseId(t.getId());
-        //return t;
+        Method[] allMethods = tClass.getDeclaredMethods();
+        for (Method m : allMethods) {
+            if (m.getName().equals("getId")) {
+                return tClass.getDeclaredMethod("getId", new Class[]{}).invoke(t, null);
+            }
+        }
+        return new ResponseId((Integer) tClass.getSuperclass().getDeclaredMethod("getId", new Class[]{}).invoke(t, null));
     }
 
     @RequestMapping(value = "", method = RequestMethod.PUT)

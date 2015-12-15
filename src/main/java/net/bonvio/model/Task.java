@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 
 @Entity
-public class Task extends ResponseId implements Serializable {
+public class Task implements Serializable {
     private Integer id;
     private Employee employer;
     private Employee employee;
