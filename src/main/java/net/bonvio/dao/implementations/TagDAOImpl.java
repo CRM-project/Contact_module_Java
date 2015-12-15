@@ -1,7 +1,7 @@
 package net.bonvio.dao.implementations;
 
 import net.bonvio.dao.generic.implementations.GenericDAOImpl;
-import net.bonvio.model.Social;
+import net.bonvio.model.Tag;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public class SocialDaoImpl extends GenericDAOImpl<Social> {
+public class TagDAOImpl extends GenericDAOImpl<Tag> {
 }

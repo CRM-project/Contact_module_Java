@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by mil on 30.11.15.
  */
-public interface CompanyDao extends GenericDAO<Company> {
+public interface CompanyDAO extends GenericDAO<Company> {
     List<Phone> getPhoneListByCompanyId(Integer id);
     List<Email> getEmailListByCompanyId(Integer id);
     List<Social> getSocialListByCompanyId(Integer id);

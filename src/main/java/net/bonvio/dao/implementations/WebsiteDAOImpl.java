@@ -1,13 +1,13 @@
 package net.bonvio.dao.implementations;
 
 import net.bonvio.dao.generic.implementations.GenericDAOImpl;
-import net.bonvio.model.Employee;
+import net.bonvio.model.Website;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by mil on 24.11.2015.
+ * Created by mil on 02.12.15.
  */
 
 @Repository
-public class EmployeeDaoImpl extends GenericDAOImpl<Employee> {
+public class WebsiteDAOImpl extends GenericDAOImpl<Website> {
 }

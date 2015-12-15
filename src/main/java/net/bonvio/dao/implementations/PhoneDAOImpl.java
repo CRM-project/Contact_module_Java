@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public class PhoneDaoImpl extends GenericDAOImplListById<Phone> {
+public class PhoneDAOImpl extends GenericDAOImplListById<Phone> {
 }

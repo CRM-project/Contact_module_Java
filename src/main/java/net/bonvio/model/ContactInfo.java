@@ -32,8 +32,8 @@ public class ContactInfo extends ResponseId implements Serializable {
     private List<Social> socialList = new ArrayList<>();
     private List<Tag> tagList = new ArrayList<>();
 
-    private List<Contact> contactFrom = new ArrayList<>();
-    private List<Contact> contactTo = new ArrayList<>();
+    private List<Contact> contactFromList = new ArrayList<>();
+    private List<Contact> contactToList = new ArrayList<>();
 
     @Override
     @Id
@@ -82,7 +82,6 @@ public class ContactInfo extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "contactInfo")
     @JsonIgnore
-
     public List<Phone> getPhoneList() {
         return phoneList;
     }
@@ -92,7 +91,6 @@ public class ContactInfo extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "contactInfo")
     @JsonIgnore
-
     public List<Website> getWebsiteList() {
         return websiteList;
     }
@@ -102,7 +100,6 @@ public class ContactInfo extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "contactInfo")
     @JsonIgnore
-
     public List<Email> getEmailList() {
         return emailList;
     }
@@ -112,7 +109,6 @@ public class ContactInfo extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "contactInfo")
     @JsonIgnore
-
     public List<Social> getSocialList() {
         return socialList;
     }
@@ -122,7 +118,6 @@ public class ContactInfo extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "contactInfo")
     @JsonIgnore
-
     public List<Tag> getTagList() {
         return tagList;
     }
@@ -132,21 +127,19 @@ public class ContactInfo extends ResponseId implements Serializable {
 
     @OneToMany (mappedBy = "contactFrom")
     @JsonIgnore
-
-    public List<Contact> getContactFrom() {
-        return contactFrom;
+    public List<Contact> getContactFromList() {
+        return contactFromList;
     }
-    public void setContactFrom(List<Contact> contactFrom) {
-        this.contactFrom = contactFrom;
+    public void setContactFromList(List<Contact> contactFromList) {
+        this.contactFromList = contactFromList;
     }
 
     @OneToMany (mappedBy = "contactTo")
     @JsonIgnore
-
-    public List<Contact> getContactTo() {
-        return contactTo;
+    public List<Contact> getContactToList() {
+        return contactToList;
     }
-    public void setContactTo(List<Contact> contactTo) {
-        this.contactTo = contactTo;
+    public void setContactToList(List<Contact> contactToList) {
+        this.contactToList = contactToList;
     }
 }
